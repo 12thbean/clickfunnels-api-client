@@ -1,0 +1,11 @@
+.env
+
+# Development tools
+.idea/
+.vscode/
+.php_cs.cache
+.phpstorm.meta.php
+
+# Ignore composer files
+vendor
+composer.lock
