@@ -1,6 +1,6 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient;
+namespace Zendrop\ClickFunnelsApiClient\DTO;
 
 use BackedEnum;
 
@@ -48,10 +48,24 @@ abstract class BaseDTO implements DtoInterface
     /**
      * {@inheritDoc}
      */
-    public static function fromArray(array $data): static
+    public static function fromResponse(array $data): static
     {
         /** @phpstan-ignore-next-line */
         return new static(...$data);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public static function arrayFromResponse(array $entityList): array
+    {
+        $dtoCollection = [];
+
+        foreach ($entityList as $entity) {
+            $dtoCollection[] = static::fromResponse($entity);
+        }
+
+        return $dtoCollection;
     }
 
     /**

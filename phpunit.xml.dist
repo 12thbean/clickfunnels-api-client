@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.0/phpunit.xsd"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnError="true"
+         stopOnFailure="true"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         verbose="false"
+>
+    <coverage>
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+        <report>
+            <clover outputFile="build/logs/clover.xml"/>
+            <text outputFile="php://stdout"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="Package tests">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <logging/>
+    <php>
+            <ini name="API_VERSION" value="v2"/>
+            <server name="TEST_ACCESS_TOKEN" value="budE-JwOVrheV1fzRsIrk7-aV-L_0V9FR8-DVeR6MU"/>
+            <server name="TEST_STORE_URL" value="store-url.myclickfunnelsrelease.com"/>
+            <server name="TEST_WORKSPACE" value="AFz3cvb"/>
+            <server name="APP_SECRET" value="s$cretf0rt3st"/>
+            <server name="SHELL_VERBOSITY" value="-1"/>
+            <server name="SYMFONY_PHPUNIT_REMOVE" value=""/>
+            <server name="SYMFONY_PHPUNIT_VERSION" value="8.5"/>
+    </php>
+</phpunit>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient;
+namespace Zendrop\ClickFunnelsApiClient\DTO;
 
 use Exception;
 

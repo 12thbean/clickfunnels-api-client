@@ -7,18 +7,22 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Log;
 use Zendrop\ClickFunnelsApiClient\Exceptions\ClientException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\ConflictRequestException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\ForbiddenException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\InvalidRequestException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\NotFoundException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\UnauthorizedException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\UnexpectedResponseException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\ValidationException;
 
 abstract class AbstractClient
 {
     public const HTTP_OK = 200;
-    public const HTTP_CREATED = 201;
-    public const NO_CONTENT = 204;
     public const BAD_REQUEST = 400;
     public const HTTP_UNAUTHORIZED = 401;
+    public const HTTP_FORBIDDEN = 403;
     public const HTTP_NOT_FOUND = 404;
-    public const HTTP_CONFLICT_REQUESTS = 409;
+    public const HTTP_CONFLICT_REQUEST = 409;
     public const HTTP_VALIDATION_ERROR = 422;
 
     protected const GET = 'get';
@@ -63,8 +67,10 @@ abstract class AbstractClient
     public function __construct(
         private readonly string $accessToken,
         private readonly string $storeUrl,
+        private readonly string $workspace,
     ) {
-        $this->apiVersion = config('clickfunnels.api_version');
+        //TODO: Change on config -> clickfunnels->api_version;
+        $this->apiVersion = 'v2';
     }
 
     /**
@@ -91,7 +97,7 @@ abstract class AbstractClient
             ])
             ->send($method, $url, $options);
 
-        if (!$response->successful()) {
+        if (!$response->successful() || !$response->json()) {
             $this->handleResponseError(
                 response: $response,
                 resource: $resource,
@@ -113,7 +119,8 @@ abstract class AbstractClient
      */
     private function generateRequestUrl(string $resource, string $method, array $payload): string
     {
-        $url = "https://$this->storeUrl/$this->apiVersion/$resource";
+        $resource = trim($resource, '/');
+        $url = "https://$this->storeUrl/api/$this->apiVersion/workspaces/$this->workspace/$resource";
 
         if (!empty($payload) && in_array($method, [self::GET, self::DELETE])) {
             $url .= '?' . http_build_query($payload);
@@ -134,9 +141,34 @@ abstract class AbstractClient
      */
     private function handleResponseError(Response $response, string $resource, array $payload): void
     {
+        if ($response->status() === self::BAD_REQUEST) {
+            $this->log('Invalid request', $resource, $payload, $response);
+            throw new InvalidRequestException($response->json()['error'] ?? '');
+        }
+
+        if ($response->status() === self::HTTP_UNAUTHORIZED) {
+            $this->log('Unauthorized request', $resource, $payload, $response);
+            throw new UnauthorizedException();
+        }
+
+        if ($response->status() === self::HTTP_FORBIDDEN) {
+            $this->log('Forbidden', $resource, $payload, $response);
+            throw new ForbiddenException();
+        }
+
         if ($response->status() === self::HTTP_NOT_FOUND) {
             $this->log('Resource not found', $resource, $payload, $response);
             throw new NotFoundException('Resource not found.');
+        }
+
+        if ($response->status() === self::HTTP_CONFLICT_REQUEST) {
+            $this->log('Conflict request', $resource, $payload, $response);
+            throw new ConflictRequestException();
+        }
+
+        if ($response->status() === self::HTTP_VALIDATION_ERROR) {
+            $this->log('Validation error', $resource, $payload, $response);
+            throw new ValidationException();
         }
 
         throw new UnexpectedResponseException(responseBody: $response->body());
