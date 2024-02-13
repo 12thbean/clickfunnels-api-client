@@ -1,5 +1,5 @@
 {
-    "name": "12thbean/clickfunnels-api-client",
+    "name": "zendrop/clickfunnels-api-client",
     "description": "The package allows you to easily make requests to the ClickFunnels.",
     "type": "project",
     "autoload": {
