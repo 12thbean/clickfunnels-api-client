@@ -22,7 +22,6 @@
     <arg name="basepath" value="."/>
 
     <file>./src</file>
-    <file>./config</file>
 
     <arg name="colors"/>
     <arg value="spv"/>
