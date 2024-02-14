@@ -1,7 +1,6 @@
 parameters:
     paths:
         - src/
-        - config/
         - tests/
 
     level: 6
