@@ -1,16 +1,15 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Contact;
+namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Tag;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 
-class ContactTagDTO extends BaseDTO
+class TagDTO extends BaseDTO
 {
     public function __construct(
-        public readonly int $id,
+        public readonly string $id,
         public readonly string $name,
-        public readonly ?string $color,
-        
+        public readonly string $color,
         mixed ...$data,
     ) {
         unset($data);

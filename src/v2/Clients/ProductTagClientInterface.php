@@ -2,14 +2,13 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductTags\CreateTagDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductTags\ProductTagDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Tag\TagDTO;
 
 interface ProductTagClientInterface
 {
     /**
-     * @param CreateTagDTO $payload
-     * @return ProductTagDTO
+     * @param TagDTO $payload
+     * @return TagDTO
      */
-    public function create(CreateTagDTO $payload): ProductTagDTO;
+    public function create(TagDTO $payload): TagDTO;
 }

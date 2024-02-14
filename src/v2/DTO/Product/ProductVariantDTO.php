@@ -8,39 +8,40 @@ class ProductVariantDTO extends BaseDTO
 {
     public function __construct(
         public readonly int $id,
-        public readonly ?string $public_id,
         public readonly int $product_id,
         public readonly string $name,
-        public readonly ?string $sku,
-        public readonly ?string $out_of_stock_sales,
-        public readonly ?float $weight,
-        public readonly ?string $weight_unit,
-        public readonly ?float $height,
-        public readonly ?float $width,
-        public readonly ?float $length,
-        public readonly ?string $dimensions_unit,
-        public readonly ?int $quantity,
-        public readonly ?string $tax_category_id,
-        public readonly ?string $taxable,
-        public readonly ?bool $track_quantity,
-        public readonly ?bool $archived,
-        public readonly ?bool $visible,
-        public readonly ?bool $fulfillment_required,
-        public readonly ?string $country_of_manufacture_id,
-        public readonly ?string $created_at,
-        public readonly ?string $updated_at,
+        
+        public readonly ?string $public_id = null,
+        public readonly ?string $sku = null,
+        public readonly ?string $out_of_stock_sales = null,
+        public readonly ?float $weight = null,
+        public readonly ?string $weight_unit = null,
+        public readonly ?float $height = null,
+        public readonly ?float $width = null,
+        public readonly ?float $length = null,
+        public readonly ?string $dimensions_unit = null,
+        public readonly ?int $quantity = null,
+        public readonly ?string $tax_category_id = null,
+        public readonly ?string $taxable = null,
+        public readonly ?bool $track_quantity = null,
+        public readonly ?bool $archived = null,
+        public readonly ?bool $visible = null,
+        public readonly ?bool $fulfillment_required = null,
+        public readonly ?string $country_of_manufacture_id = null,
+        public readonly ?string $created_at = null,
+        public readonly ?string $updated_at = null,
 
         /** @var array<int,int>|null */
-        public readonly ?array $properties_value_ids,
+        public readonly ?array $properties_value_ids = null,
 
         /** @var array<int,int>|null */
-        public readonly ?array $tag_ids,
+        public readonly ?array $tag_ids = null,
 
         /** @var array<int,int>|null */
-        public readonly ?array $asset_ids,
+        public readonly ?array $asset_ids = null,
 
         /** @var array<int,int>|null */
-        public readonly ?array $price_ids,
+        public readonly ?array $price_ids = null,
 
         mixed ...$data,
     ) {
