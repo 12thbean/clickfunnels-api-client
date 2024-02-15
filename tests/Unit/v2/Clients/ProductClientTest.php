@@ -16,7 +16,7 @@ final class ProductClientTest extends ClientTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = app(ProductClient::class, $this->clientData);
+        $this->client = new ProductClient(...$this->clientData);
     }
 
     public function testGetList(): void
