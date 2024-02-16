@@ -10,6 +10,7 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\CreateVariantDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\ProductVariantDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\UpdateVariantDTO;
 
 class ProductVariantClientTest extends ClientTestCase
 {
@@ -58,7 +59,7 @@ class ProductVariantClientTest extends ClientTestCase
             productId: $productId,
             payload: new CreateVariantDTO(
                 name: $expectedResponse['name'],
-                weight_unit: '100.00',
+                weight_unit: 'lb',
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
                 length: $expectedResponse['length'],
@@ -67,6 +68,30 @@ class ProductVariantClientTest extends ClientTestCase
         $this->assertEquals($expectedResponse['id'], $variant->id);
         $this->assertEquals($expectedResponse['name'], $variant->name);
         $this->assertEquals($expectedResponse['product_id'], $productId);
+        $this->assertEquals($expectedResponse['height'], $variant->height);
+        $this->assertEquals($expectedResponse['width'], $variant->width);
+        $this->assertEquals($expectedResponse['length'], $variant->length);
+    }
+
+    public function testUpdate(): void
+    {
+        $variantId = 16081;
+        $expectedResponse = VariantTestData::variant(id: $variantId);
+
+        Http::fake(['*/products/variants/*' => Http::response($expectedResponse)]);
+
+        $variant = $this->client->update(
+            id: $variantId,
+            payload: new UpdateVariantDTO(
+                name: $expectedResponse['name'],
+                weight_unit: 'lb',
+                height: $expectedResponse['height'],
+                width: $expectedResponse['width'],
+                length: $expectedResponse['length'],
+            ),
+        );
+        $this->assertEquals($expectedResponse['id'], $variant->id);
+        $this->assertEquals($expectedResponse['product_id'], $variant->product_id);
         $this->assertEquals($expectedResponse['height'], $variant->height);
         $this->assertEquals($expectedResponse['width'], $variant->width);
         $this->assertEquals($expectedResponse['length'], $variant->length);
