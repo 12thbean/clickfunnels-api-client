@@ -1,9 +1,8 @@
 <?php
 
-namespace Unit\v2\Clients;
+namespace Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\Clients;
 
 use Illuminate\Support\Facades\Http;
-use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\Clients\ClientTestCase;
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductVariants\VariantListTestData;
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductVariants\VariantTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClient;

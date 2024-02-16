@@ -10,6 +10,7 @@ final class ProductTestData
      * @param int $id
      * @param string $name
      * @param bool $visibleInStore
+     * @param bool $visibleInCustomerCenter
      * @param string $seoTitle
      *
      * @return array<string, mixed>
@@ -19,6 +20,7 @@ final class ProductTestData
         int $id = 10130,
         string $name = "My Workspace's First Product",
         bool $visibleInStore = false,
+        bool $visibleInCustomerCenter = false,
         string $seoTitle = 'Test Product',
     ): array {
         $jsonResponse = <<<JSON
@@ -51,6 +53,7 @@ JSON;
         $data['id'] = $id;
         $data['name'] = $name;
         $data['visible_in_store'] = $visibleInStore;
+        $data['visible_in_customer_center'] = $visibleInCustomerCenter;
         $data['seo_title'] = $seoTitle;
 
         return $data;

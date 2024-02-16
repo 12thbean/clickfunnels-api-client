@@ -5,6 +5,7 @@ namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 use Zendrop\ClickFunnelsApiClient\Http\Packs\HttpMethod;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\CreateProductDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\ProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\UpdateProductDTO;
 
 class ProductClient extends AbstractClient implements ProductClientInterface
 {
@@ -38,6 +39,21 @@ class ProductClient extends AbstractClient implements ProductClientInterface
                 'product' => $payload->toArray(),
             ],
             workspaceRequest: true,
+        );
+        return ProductDTO::fromResponse($response->json());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function update(int $id, UpdateProductDTO $payload): ProductDTO
+    {
+        $response = $this->sendRequest(
+            resource: "/products/{$id}",
+            method: HttpMethod::PUT,
+            payload: [
+                'product' => $payload->toArray(),
+            ],
         );
         return ProductDTO::fromResponse($response->json());
     }
