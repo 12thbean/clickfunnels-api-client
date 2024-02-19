@@ -1,6 +1,6 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Products;
+namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Product;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 

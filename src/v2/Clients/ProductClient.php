@@ -3,9 +3,9 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
 use Zendrop\ClickFunnelsApiClient\Http\Packs\HttpMethod;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\CreateProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\ProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\UpdateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\CreateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\UpdateProductDTO;
 
 class ProductClient extends AbstractClient implements ProductClientInterface
 {

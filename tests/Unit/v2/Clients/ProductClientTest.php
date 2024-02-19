@@ -7,8 +7,8 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductListTes
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClientInterface;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\CreateProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\UpdateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\CreateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\UpdateProductDTO;
 
 final class ProductClientTest extends ClientTestCase
 {
