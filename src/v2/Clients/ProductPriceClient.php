@@ -34,7 +34,9 @@ class ProductPriceClient extends AbstractClient implements ProductPriceClientInt
         $response = $this->sendRequest(
             resource: "/products/{$productId}/prices",
             method: HttpMethod::POST,
-            payload: $payload->toArray(),
+            payload: [
+                'products_price' => $payload->toArray(),
+            ],
         );
         return ProductPriceDTO::fromResponse($response->json());
     }
