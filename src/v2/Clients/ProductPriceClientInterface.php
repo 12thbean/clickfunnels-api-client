@@ -2,8 +2,7 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrices\CreateProductPriceDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrices\ProductPriceDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductPriceDTO;
 
 interface ProductPriceClientInterface
 {
@@ -30,10 +29,10 @@ interface ProductPriceClientInterface
      * Creates a new product price.
      *
      * @param int $productId
-     * @param CreateProductPriceDTO $payload
+     * @param ProductPriceDTO $payload
      *
      * @return ProductPriceDTO
      * @link https://apidocs.myclickfunnels.com/tag/Products::Price#operation/createProductsPrices
      */
-    public function create(int $productId, CreateProductPriceDTO $payload): ProductPriceDTO;
+    public function create(int $productId, ProductPriceDTO $payload): ProductPriceDTO;
 }
