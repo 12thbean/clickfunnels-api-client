@@ -19,7 +19,7 @@ class AbstractClientTest extends ClientTestCase
     public function testClientExceptions(?array $body, int $status, string $expectedException): void
     {
         /** @var ProductClientInterface $productClient */
-        $productClient = app(ProductClient::class, $this->clientData);
+        $productClient = new ProductClient(...$this->clientData);
 
         $sequenceBuilder = Http::fakeSequence();
         $sequenceBuilder->push(body: $body, status: $status);

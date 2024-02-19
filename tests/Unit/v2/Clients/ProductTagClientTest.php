@@ -9,18 +9,14 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClientInterface;
 use Zendrop\ClickFunnelsApiClient\Tests\TestCase;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Tag\TagDTO;
 
-final class ProductTagClientTest extends TestCase
+final class ProductTagClientTest extends ClientTestCase
 {
     private ProductTagClientInterface $client;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = app(ProductTagClient::class, [
-            'accessToken' => env('TEST_ACCESS_TOKEN'),
-            'storeUrl' => env('TEST_STORE_URL'),
-            'workspace' => env('TEST_WORKSPACE'),
-        ]);
+        $this->client = new ProductTagClient(...$this->clientData);
     }
 
     public function testCreate(): void

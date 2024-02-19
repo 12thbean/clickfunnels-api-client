@@ -56,11 +56,10 @@ abstract class AbstractClient
 
     public function __construct(
         private readonly string $accessToken,
-        private readonly string $storeUrl,
-        private readonly string $workspace,
-        ?ApiVersion $version = null,
+        private readonly string $workspaceUrl,
+        private readonly string $workspaceId,
     ) {
-        $this->apiVersion = $version ?? ApiVersion::latest();
+        $this->apiVersion = ApiVersion::V2;
     }
 
     /**
@@ -69,6 +68,7 @@ abstract class AbstractClient
      * @param string $resource
      * @param HttpMethod $method
      * @param array<string, mixed> $payload
+     * @param bool $workspaceRequest
      *
      * @return Response
      * @throws ClientException
@@ -77,10 +77,11 @@ abstract class AbstractClient
         string $resource,
         HttpMethod $method = HttpMethod::GET,
         array $payload = [],
+        bool $workspaceRequest = false,
     ): Response {
         $requestMethod = $method->value;
 
-        $url = $this->generateRequestUrl($resource, $requestMethod, $payload);
+        $url = $this->generateRequestUrl($resource, $requestMethod, $payload, $workspaceRequest);
 
         $options = !in_array($requestMethod, [
             HttpMethod::GET->value,
@@ -110,13 +111,22 @@ abstract class AbstractClient
      * @param string $resource
      * @param string $method
      * @param array<string, mixed> $payload
-     *
+     * @param bool $workspaceRequest
      * @return string
      */
-    private function generateRequestUrl(string $resource, string $method, array $payload): string
-    {
+    private function generateRequestUrl(
+        string $resource,
+        string $method,
+        array $payload,
+        bool $workspaceRequest,
+    ): string {
         $resource = trim($resource, '/');
-        $url = "https://$this->storeUrl/api/{$this->apiVersion->value}/workspaces/$this->workspace/$resource";
+
+        if ($workspaceRequest) {
+            $url = "https://$this->workspaceUrl/api/{$this->apiVersion->value}/workspaces/$this->workspaceId/$resource";
+        } else {
+            $url = "https://$this->workspaceUrl/api/{$this->apiVersion->value}/$resource";
+        }
 
         $getOrDelete = in_array($method, [HttpMethod::GET->value, HttpMethod::DELETE->value], true);
         if (!empty($payload) && $getOrDelete) {
@@ -184,7 +194,7 @@ abstract class AbstractClient
     private function log(string $message, string $resource, array $payload, Response $response): void
     {
         Log::warning(sprintf('%s: %s', static::class, $message), [
-            'storeUrl' => $this->storeUrl,
+            'storeUrl' => $this->workspaceUrl,
             'resource' => $resource,
             'payload' => $payload,
             'response' => [

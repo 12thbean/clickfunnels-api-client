@@ -1,6 +1,6 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductTags;
+namespace Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products;
 
 use JsonException;
 
