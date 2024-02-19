@@ -1,5 +1,5 @@
 {
-    "name": "12thbean/clickfunnels-api-client",
+    "name": "zendrop/clickfunnels-api-client",
     "description": "The package allows you to easily make requests to the ClickFunnels.",
     "type": "project",
     "autoload": {
@@ -29,7 +29,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "^7.2",
-        "illuminate/http": "^10.0"
+        "illuminate/http": "^9.0"
     },
     "license": "MIT",
     "minimum-stability": "dev",
