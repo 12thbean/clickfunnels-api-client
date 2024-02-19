@@ -2,9 +2,9 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrices;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
 
-class CreateProductPriceDTO extends BaseDTO
+class CreateProductPriceDTO extends RequestDTO
 {
     public function __construct(
         public readonly string $amount,
@@ -27,6 +27,8 @@ class CreateProductPriceDTO extends BaseDTO
         public readonly ?string $compare_at_amount = null,
         public readonly ?string $key = null,
         public readonly ?bool $archived = null,
+        /** @var string[] $fields */
+        public readonly array $fields = [],
     ) {
     }
 }
