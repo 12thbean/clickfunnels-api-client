@@ -7,8 +7,7 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductListTes
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClientInterface;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\CreateProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\UpdateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductDTO;
 
 final class ProductClientTest extends ClientTestCase
 {
@@ -49,7 +48,7 @@ final class ProductClientTest extends ClientTestCase
 
     public function testCreate(): void
     {
-        $payload = new CreateProductDTO(
+        $payload = new ProductDTO(
             name: 'Test',
             visible_in_store: true,
             visible_in_customer_center: true,
@@ -75,7 +74,7 @@ final class ProductClientTest extends ClientTestCase
     {
         $productId = 9138;
 
-        $payload = new UpdateProductDTO(
+        $payload = new ProductDTO(
             name: 'Test',
             visible_in_store: true,
             visible_in_customer_center: true,

@@ -3,8 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
 use Zendrop\ClickFunnelsApiClient\Http\Packs\HttpMethod;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrices\CreateProductPriceDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrices\ProductPriceDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductPriceDTO;
 
 class ProductPriceClient extends AbstractClient implements ProductPriceClientInterface
 {
@@ -29,7 +28,7 @@ class ProductPriceClient extends AbstractClient implements ProductPriceClientInt
     /**
      * {@inheritDoc}
      */
-    public function create(int $productId, CreateProductPriceDTO $payload): ProductPriceDTO
+    public function create(int $productId, ProductPriceDTO $payload): ProductPriceDTO
     {
         $response = $this->sendRequest(
             resource: "/products/{$productId}/prices",

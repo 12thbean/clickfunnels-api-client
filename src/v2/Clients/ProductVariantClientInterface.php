@@ -2,9 +2,7 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\CreateVariantDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\ProductVariantDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\UpdateVariantDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductVariantDTO;
 
 interface ProductVariantClientInterface
 {
@@ -30,21 +28,21 @@ interface ProductVariantClientInterface
      * Creates new product variant.
      *
      * @param int $productId
-     * @param CreateVariantDTO $payload
+     * @param ProductVariantDTO $payload
      *
      * @return ProductVariantDTO
      * @link https://apidocs.myclickfunnels.com/tag/Products::Variant#operation/createProductsVariants
      */
-    public function create(int $productId, CreateVariantDTO $payload): ProductVariantDTO;
+    public function create(int $productId, ProductVariantDTO $payload): ProductVariantDTO;
 
     /**
      * Updates product variant by its ID.
      *
      * @param int $id
-     * @param UpdateVariantDTO $payload
+     * @param ProductVariantDTO $payload
      *
      * @return ProductVariantDTO
      * @link https://apidocs.myclickfunnels.com/tag/Products::Variant#operation/updateProductsVariants
      */
-    public function update(int $id, UpdateVariantDTO $payload): ProductVariantDTO;
+    public function update(int $id, ProductVariantDTO $payload): ProductVariantDTO;
 }

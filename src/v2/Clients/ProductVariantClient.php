@@ -3,9 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
 use Zendrop\ClickFunnelsApiClient\Http\Packs\HttpMethod;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\CreateVariantDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\ProductVariantDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariants\UpdateVariantDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductVariantDTO;
 
 class ProductVariantClient extends AbstractClient implements ProductVariantClientInterface
 {
@@ -30,7 +28,7 @@ class ProductVariantClient extends AbstractClient implements ProductVariantClien
     /**
      * {@inheritDoc}
      */
-    public function create(int $productId, CreateVariantDTO $payload): ProductVariantDTO
+    public function create(int $productId, ProductVariantDTO $payload): ProductVariantDTO
     {
         $response = $this->sendRequest(
             resource: "/products/{$productId}/variants",
@@ -45,7 +43,7 @@ class ProductVariantClient extends AbstractClient implements ProductVariantClien
     /**
      * {@inheritDoc}
      */
-    public function update(int $id, UpdateVariantDTO $payload): ProductVariantDTO
+    public function update(int $id, ProductVariantDTO $payload): ProductVariantDTO
     {
         $response = $this->sendRequest(
             resource: "/products/variants/{$id}",

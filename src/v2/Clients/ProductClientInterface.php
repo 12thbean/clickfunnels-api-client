@@ -2,9 +2,7 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\CreateProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\ProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Products\UpdateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductDTO;
 
 interface ProductClientInterface
 {
@@ -28,21 +26,21 @@ interface ProductClientInterface
     /**
      * Creates a new product.
      *
-     * @param CreateProductDTO $payload
+     * @param ProductDTO $payload
      *
      * @return ProductDTO
      * @link https://apidocs.myclickfunnels.com/tag/Product#operation/createProducts
      */
-    public function create(CreateProductDTO $payload): ProductDTO;
+    public function create(ProductDTO $payload): ProductDTO;
 
     /**
      * Updates a product.
      *
      * @param int $id
-     * @param UpdateProductDTO $payload
+     * @param ProductDTO $payload
      *
      * @return ProductDTO
      * @link https://apidocs.myclickfunnels.com/tag/Product#operation/updateProducts
      */
-    public function update(int $id, UpdateProductDTO $payload): ProductDTO;
+    public function update(int $id, ProductDTO $payload): ProductDTO;
 }
