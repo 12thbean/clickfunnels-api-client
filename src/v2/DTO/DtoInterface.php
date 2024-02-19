@@ -2,12 +2,7 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO;
 
-use ArrayAccess;
-
-/**
- * @extends ArrayAccess<string, mixed>
- */
-interface DtoInterface extends ArrayAccess
+interface DtoInterface
 {
     /**
      * @param array<string, mixed> $data

@@ -56,8 +56,8 @@ abstract class AbstractClient
 
     public function __construct(
         private readonly string $accessToken,
-        private readonly string $storeUrl,
-        private readonly string $workspace,
+        private readonly string $workspaceUrl,
+        private readonly string $workspaceId,
     ) {
         $this->apiVersion = ApiVersion::V2;
     }
@@ -123,9 +123,9 @@ abstract class AbstractClient
         $resource = trim($resource, '/');
 
         if ($workspaceRequest) {
-            $url = "https://$this->storeUrl/api/{$this->apiVersion->value}/workspaces/$this->workspace/$resource";
+            $url = "https://$this->workspaceUrl/api/{$this->apiVersion->value}/workspaces/$this->workspaceId/$resource";
         } else {
-            $url = "https://$this->storeUrl/api/{$this->apiVersion->value}/$resource";
+            $url = "https://$this->workspaceUrl/api/{$this->apiVersion->value}/$resource";
         }
 
         $getOrDelete = in_array($method, [HttpMethod::GET->value, HttpMethod::DELETE->value], true);
@@ -194,7 +194,7 @@ abstract class AbstractClient
     private function log(string $message, string $resource, array $payload, Response $response): void
     {
         Log::warning(sprintf('%s: %s', static::class, $message), [
-            'storeUrl' => $this->storeUrl,
+            'storeUrl' => $this->workspaceUrl,
             'resource' => $resource,
             'payload' => $payload,
             'response' => [
