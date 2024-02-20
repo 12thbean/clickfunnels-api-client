@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Http;
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductTags\CreateTagTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClientInterface;
-use Zendrop\ClickFunnelsApiClient\Tests\TestCase;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Tag\TagDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Tag\CreateTagDTO;
 
 final class ProductTagClientTest extends ClientTestCase
 {
@@ -24,7 +23,7 @@ final class ProductTagClientTest extends ClientTestCase
         $tagName = 'Test';
         $tagColor = 'byzantium';
 
-        $payload = new TagDTO(
+        $payload = new CreateTagDTO(
             name: $tagName,
             color: $tagColor,
         );

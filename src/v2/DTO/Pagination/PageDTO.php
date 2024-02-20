@@ -7,9 +7,9 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 class PageDTO extends BaseDTO
 {
     public function __construct(
-        public readonly ?string $id = null,
-        public readonly ?string $name = null,
-        public readonly ?string $url = null,
+        public readonly string $id,
+        public readonly string $name,
+        public readonly string $url,
         mixed ...$data,
     ) {
         unset($data);

@@ -8,9 +8,9 @@ use Zendrop\ClickFunnelsApiClient\v2\Enum\InvoiceType;
 class InvoiceDTO extends BaseDTO
 {
     public function __construct(
-        public readonly ?int $id = null,
-        public readonly ?int $order_id = null,
-        public readonly ?string $status = null,
+        public readonly int $id,
+        public readonly int $order_id,
+        public readonly string $status,
         public readonly ?string $public_id = null,
         public readonly ?string $due_amount = null,
         public readonly ?string $total_amount = null,
@@ -25,10 +25,8 @@ class InvoiceDTO extends BaseDTO
         public readonly ?string $created_at = null,
         public readonly ?string $updated_at = null,
         public readonly ?InvoiceType $invoice_type = null,
-
         /** @var array<int,LineItemDTO>|null */
-        public readonly ?array $line_items = null, 
-
+        public readonly ?array $line_items = null,
         mixed ...$data,
     ) {
         unset($data);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Product;
+namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\PaymentType;
@@ -8,12 +8,12 @@ use Zendrop\ClickFunnelsApiClient\v2\Enum\PaymentType;
 class ProductPriceDTO extends BaseDTO
 {
     public function __construct(
-        public readonly ?int $id = null,
-        public readonly ?string $amount = null,
-        public readonly ?string $currency = null,
-        public readonly ?int $duration = null,
-        public readonly ?string $interval = null,
-        public readonly ?int $interval_count = null,
+        public readonly int $id,
+        public readonly string $amount,
+        public readonly string $currency,
+        public readonly int $duration,
+        public readonly string $interval,
+        public readonly int $interval_count,
         public readonly ?string $public_id = null,
         public readonly ?int $variant_id = null,
         public readonly ?string $name = null,
@@ -33,7 +33,6 @@ class ProductPriceDTO extends BaseDTO
         public readonly ?bool $created_at = null,
         public readonly ?bool $updated_at = null,
         public readonly ?PaymentType $payment_type = null,
-
         mixed ...$data,
     ) {
         unset($data);

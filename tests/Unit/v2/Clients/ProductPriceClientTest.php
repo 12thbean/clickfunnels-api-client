@@ -7,7 +7,8 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductPrices\PriceList
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductPrices\PriceTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClientInterface;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductPriceDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice\CreateProductPriceDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice\ProductPriceDTO;
 
 class ProductPriceClientTest extends ClientTestCase
 {
@@ -42,7 +43,7 @@ class ProductPriceClientTest extends ClientTestCase
 
     public function testCreate(): void
     {
-        $payload = new ProductPriceDTO(
+        $payload = new CreateProductPriceDTO(
             amount: '29.00',
             currency: 'USD',
             duration: 0,

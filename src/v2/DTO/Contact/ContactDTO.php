@@ -8,10 +8,9 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\Tag\TagDTO;
 class ContactDTO extends BaseDTO
 {
     public function __construct(
-        public readonly ?int $id = null,
-        public readonly ?int $workspace_id = null,
-        public readonly ?string $uuid = null,
-
+        public readonly int $id,
+        public readonly int $workspace_id,
+        public readonly string $uuid,
         public readonly ?string $public_id = null,
         public readonly ?string $anonymous = null,
         public readonly ?string $email_address = null,
@@ -28,10 +27,8 @@ class ContactDTO extends BaseDTO
         public readonly ?string $website_url = null,
         public readonly ?string $created_at = null,
         public readonly ?string $updated_at = null,
-
         /** @var array<int,TagDTO>|null */
         public readonly ?array $tags = null,
-
         mixed ...$data,
     ) {
         unset($data);
