@@ -14,15 +14,6 @@
          stopOnSkipped="false"
          verbose="false"
 >
-    <coverage>
-        <include>
-            <directory suffix=".php">src/</directory>
-        </include>
-        <report>
-            <clover outputFile="build/logs/clover.xml"/>
-            <text outputFile="php://stdout"/>
-        </report>
-    </coverage>
     <testsuites>
         <testsuite name="Package tests">
             <directory>tests</directory>

@@ -11,11 +11,13 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\Workspace\WorkspaceDTO;
 class OrderDTO extends BaseDTO
 {
     public function __construct(
-        public readonly ?int $id = null,
-        public readonly ?int $workspace_id = null,
-        public readonly ?int $contact_id = null,
-        public readonly ?string $currency = null,
-        public readonly ?int $origination_channel_id = null,
+        public readonly int $id,
+        public readonly int $workspace_id,
+        public readonly int $contact_id,
+        public readonly string $currency,
+        public readonly int $origination_channel_id,
+        public readonly ContactDTO $contact,
+        public readonly WorkspaceDTO $workspace,
         public readonly ?string $public_id = null,
         public readonly ?string $order_number = null,
         public readonly ?string $total_amount = null,
@@ -55,24 +57,16 @@ class OrderDTO extends BaseDTO
         public readonly ?string $origination_channel_name = null,
         public readonly ?string $previous_line_item = null,
         public readonly ?PageDTO $order_page = null,
-        public readonly ?ContactDTO $contact = null,
-        public readonly ?WorkspaceDTO $workspace = null,
-
         /** @var array<int,int>|null */
         public readonly ?array $tag_ids = null,
-
         /** @var array<int,int>|null */
         public readonly ?array $discount_ids = null,
-
         /** @var array<int,ContactGroupDTO> */
         public readonly ?array $contact_groups = null,
-
         /** @var array<int,SegmentDTO>|null */
         public readonly ?array $segments = null,
-
         /** @var array<int,LineItemDTO>|null */
         public readonly ?array $line_items = null,
-
         mixed ...$data,
     ) {
         unset($data);

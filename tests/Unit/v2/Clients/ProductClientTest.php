@@ -7,7 +7,8 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductListTes
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Products\ProductTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClientInterface;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\CreateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\UpdateProductDTO;
 
 final class ProductClientTest extends ClientTestCase
 {
@@ -48,7 +49,7 @@ final class ProductClientTest extends ClientTestCase
 
     public function testCreate(): void
     {
-        $payload = new ProductDTO(
+        $payload = new CreateProductDTO(
             name: 'Test',
             visible_in_store: true,
             visible_in_customer_center: true,
@@ -74,27 +75,27 @@ final class ProductClientTest extends ClientTestCase
     {
         $productId = 9138;
 
-        $payload = new ProductDTO(
-            name: 'Test',
-            visible_in_store: true,
-            visible_in_customer_center: true,
-            seo_title: 'Test Product',
-            fields: ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
-        );
+        $payload = new UpdateProductDTO([
+            "name" => 'Test',
+            "visible_in_store" => true,
+            "visible_in_customer_center" => true,
+            "seo_title" => 'Test Product',
+            "fields" => ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
+        ]);
 
         Http::fake([
             '*/products*' => Http::response(ProductTestData::product(
                 id: $productId,
-                name: $payload->name,
-                visibleInStore: $payload->visible_in_store,
-                visibleInCustomerCenter: $payload->visible_in_customer_center,
-                seoTitle: $payload->seo_title,
+                name: $payload->fields['name'],
+                visibleInStore: $payload->fields['visible_in_store'],
+                visibleInCustomerCenter: $payload->fields['visible_in_customer_center'],
+                seoTitle: $payload->fields['seo_title'],
             )),
         ]);
 
         $product = $this->client->update($productId, $payload);
-        $this->assertEquals($payload->name, $product->name);
-        $this->assertEquals($payload->visible_in_store, $product->visible_in_store);
-        $this->assertEquals($payload->visible_in_customer_center, $product->visible_in_customer_center);
+        $this->assertEquals($payload->fields['name'], $product->name);
+        $this->assertEquals($payload->fields['visible_in_store'], $product->visible_in_store);
+        $this->assertEquals($payload->fields['visible_in_customer_center'], $product->visible_in_customer_center);
     }
 }

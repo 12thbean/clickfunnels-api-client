@@ -3,8 +3,9 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO;
 
 use BackedEnum;
+use Zendrop\Data\Data;
 
-abstract class BaseDTO implements DtoInterface
+abstract class BaseDTO extends Data implements DtoInterface
 {
     /**
      * {@inheritDoc}
@@ -12,7 +13,7 @@ abstract class BaseDTO implements DtoInterface
     public static function fromResponse(array $data): static
     {
         /** @phpstan-ignore-next-line */
-        return new static(...$data);
+        return static::from($data, true);
     }
 
     /**
