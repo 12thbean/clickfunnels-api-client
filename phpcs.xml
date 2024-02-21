@@ -4,16 +4,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
-
     <!-- Main rule-->
     <rule ref="PSR12"/>
 
     <!-- Additional custom rules-->
     <rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
     <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
-    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
-        <exclude-pattern>*DTO.php</exclude-pattern>
-    </rule>
     <!-- <rule ref="Squiz.PHP.NonExecutableCode"/> Temporary disabled until phpcs 3.8.0+ released -->
     <rule ref="Generic.PHP.LowerCaseConstant"/>
     <rule ref="Generic.NamingConventions.CamelCapsFunctionName">

@@ -18,7 +18,7 @@ class ContactDTO extends BaseDTO
         public readonly ?string $lastName = null,
         public readonly ?string $phoneNumber = null,
         public readonly ?string $timeZone = null,
-        public readonly ?string $unsubscribed_at = null,
+        public readonly ?string $unsubscribedAt = null,
         public readonly ?string $lastNotificationEmailSentAt = null,
         public readonly ?string $fbUrl = null,
         public readonly ?string $twitterUrl = null,

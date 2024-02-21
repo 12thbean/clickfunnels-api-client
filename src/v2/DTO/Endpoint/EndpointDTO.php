@@ -15,7 +15,7 @@ class EndpointDTO extends BaseDTO
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
         /** @var array<int,int> */
-        public readonly ?array $event_type_ids = null,
+        public readonly ?array $eventTypeIds = null,
         mixed ...$data,
     ) {
         unset($data);
