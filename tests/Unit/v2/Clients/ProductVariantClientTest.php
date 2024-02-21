@@ -44,7 +44,7 @@ class ProductVariantClientTest extends ClientTestCase
         $variant = $this->client->getById(id: $variantId);
         $this->assertEquals($variantId, $variant->id);
         $this->assertEquals($expectedResponse['name'], $variant->name);
-        $this->assertEquals($expectedResponse['product_id'], $variant->product_id);
+        $this->assertEquals($expectedResponse['product_id'], $variant->productId);
     }
 
     public function testCreate(): void
@@ -58,7 +58,7 @@ class ProductVariantClientTest extends ClientTestCase
             productId: $productId,
             payload: new CreateProductVariantDTO(
                 name: $expectedResponse['name'],
-                weight_unit: 'lb',
+                weightUnit: 'lb',
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
                 length: $expectedResponse['length'],
@@ -90,7 +90,7 @@ class ProductVariantClientTest extends ClientTestCase
             ]),
         );
         $this->assertEquals($expectedResponse['id'], $variant->id);
-        $this->assertEquals($expectedResponse['product_id'], $variant->product_id);
+        $this->assertEquals($expectedResponse['product_id'], $variant->productId);
         $this->assertEquals($expectedResponse['height'], $variant->height);
         $this->assertEquals($expectedResponse['width'], $variant->width);
         $this->assertEquals($expectedResponse['length'], $variant->length);
