@@ -78,10 +78,11 @@ abstract class AbstractClient
         HttpMethod $method = HttpMethod::GET,
         array $payload = [],
         bool $workspaceRequest = false,
+        ?string $customUrl = null,
     ): Response {
         $requestMethod = $method->value;
 
-        $url = $this->generateRequestUrl($resource, $requestMethod, $payload, $workspaceRequest);
+        $url = $customUrl ?? $this->generateRequestUrl($resource, $requestMethod, $payload, $workspaceRequest);
 
         $options = !in_array($requestMethod, [
             HttpMethod::GET->value,

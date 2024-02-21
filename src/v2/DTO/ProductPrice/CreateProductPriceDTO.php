@@ -2,10 +2,9 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
-use Zendrop\ClickFunnelsApiClient\v2\Enum\PaymentType;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
 
-class CreateProductPriceDTO extends BaseDTO
+class CreateProductPriceDTO extends RequestDTO
 {
     public function __construct(
         public readonly string $amount,

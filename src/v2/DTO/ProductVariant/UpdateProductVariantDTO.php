@@ -2,9 +2,9 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
 
-class UpdateProductVariantDTO extends BaseDTO
+class UpdateProductVariantDTO extends RequestDTO
 {
     public function __construct(
         /** @var array<mixed,mixed> $fields */
