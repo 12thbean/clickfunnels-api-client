@@ -11,15 +11,15 @@ class LineItemDTO extends BaseDTO
 {
     public function __construct(
         public readonly int $id,
-        public readonly int $order_id,
-        public readonly ProductDTO $original_product,
-        public readonly ProductPriceDTO $products_price,
-        public readonly string $public_id = null,
+        public readonly int $orderId,
+        public readonly ProductDTO $originalProduct,
+        public readonly ProductPriceDTO $productsPrice,
+        public readonly string $publicId = null,
         public readonly ?int $quantity = null,
         public readonly ?string $prorated = null,
-        public readonly ?string $created_at = null,
-        public readonly ?string $updated_at = null,
-        public readonly ?ProductVariantDTO $products_variant = null,
+        public readonly ?string $createdAt = null,
+        public readonly ?string $updatedAt = null,
+        public readonly ?ProductVariantDTO $productsVariant = null,
         mixed ...$data,
     ) {
         unset($data);

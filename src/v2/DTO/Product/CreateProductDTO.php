@@ -8,21 +8,21 @@ class CreateProductDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $name,
-        public readonly ?string $current_path = null,
-        public readonly ?bool $visible_in_store = null,
-        public readonly ?bool $visible_in_customer_center = null,
-        public readonly ?string $seo_title = null,
-        public readonly ?string $seo_description = null,
-        public readonly ?string $seo_image_id = null,
+        public readonly ?string $currentPath = null,
+        public readonly ?bool $visibleInStore = null,
+        public readonly ?bool $visibleInCustomerCenter = null,
+        public readonly ?string $seoTitle = null,
+        public readonly ?string $seoDescription = null,
+        public readonly ?string $seoImageId = null,
         public readonly ?bool $commissionable = null,
-        public readonly ?string $redirect_funnel_id = null,
-        public readonly ?string $cancellation_funnel_url = null,
-        /** @var int[] $image_ids */
-        public readonly ?array $image_ids = null,
-        /** @var int[] $variant_ids */
-        public readonly ?array $variant_ids = null,
-        /** @var int[] $price_ids */
-        public readonly ?array $price_ids = null,
+        public readonly ?string $redirectFunnelId = null,
+        public readonly ?string $cancellationFunnelUrl = null,
+        /** @var int[] $imageIds */
+        public readonly ?array $imageIds = null,
+        /** @var int[] $variantIds */
+        public readonly ?array $variantIds = null,
+        /** @var int[] $priceIds */
+        public readonly ?array $priceIds = null,
         mixed ...$data,
     ) {
         unset($data);

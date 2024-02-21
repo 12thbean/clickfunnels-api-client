@@ -13,7 +13,7 @@ abstract class BaseDTO extends Data implements DtoInterface
     public static function fromResponse(array $data): static
     {
         /** @phpstan-ignore-next-line */
-        return static::from($data, true);
+        return static::from($data);
     }
 
     /**

@@ -48,10 +48,10 @@ class ProductPriceClientTest extends ClientTestCase
             currency: 'USD',
             duration: 0,
             interval: '',
-            trial_interval: '',
-            trial_duration: '',
-            interval_count: 0,
-            trial_amount: '',
+            trialInterval: '',
+            trialDuration: '',
+            intervalCount: 0,
+            trialAmount: '',
             name: 'Special Price',
         );
 
