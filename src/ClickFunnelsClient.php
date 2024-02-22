@@ -3,6 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient;
 
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AbstractClient;
+use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClient;
@@ -22,6 +23,11 @@ class ClickFunnelsClient
     public static function fake(string $class, string $workspaceId, AbstractClient $instance): void
     {
         self::$registry[$class][$workspaceId] = $instance;
+    }
+
+    public function auth(): AuthClient
+    {
+        return $this->make(AuthClient::class);
     }
 
     public function product(): ProductClient

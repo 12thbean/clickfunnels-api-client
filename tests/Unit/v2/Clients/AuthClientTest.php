@@ -3,6 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\Clients;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Auth\AccessTokenRequestDTO;
@@ -48,7 +49,11 @@ JSON;
         ]);
 
         $accessToken = $this->client->getAccessToken($payload);
+        $accessTokenArray = $accessToken->toArray();
 
-        $this->assertCount(10, $accessToken->toArray());
+        $this->assertCount(count($expectedData), $accessTokenArray);
+        foreach ($expectedData as $key => $value) {
+            $this->assertArrayHasKey(Str::camel($key), $accessTokenArray);
+        }
     }
 }
