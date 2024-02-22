@@ -65,12 +65,7 @@ abstract class AbstractClient
     /**
      * Sends shopify requests and handles its status.
      *
-     * @param string $resource
-     * @param HttpMethod $method
      * @param array<string, mixed> $payload
-     * @param bool $workspaceRequest
-     *
-     * @return Response
      * @throws ClientException
      */
     protected function sendRequest(
@@ -109,11 +104,7 @@ abstract class AbstractClient
     /**
      * Generates request URL to requested resource.
      *
-     * @param string $resource
-     * @param string $method
      * @param array<string, mixed> $payload
-     * @param bool $workspaceRequest
-     * @return string
      */
     private function generateRequestUrl(
         string $resource,
@@ -140,11 +131,7 @@ abstract class AbstractClient
     /**
      * Resolves exceptions based on failed response.
      *
-     * @param Response $response
-     * @param string $resource
      * @param array<string, mixed> $payload
-     *
-     * @return never
      * @throws ClientException
      */
     private function handleResponseError(Response $response, string $resource, array $payload): never
@@ -186,11 +173,7 @@ abstract class AbstractClient
     /**
      * Logs unsuccessful requests.
      *
-     * @param string $message
-     * @param string $resource
      * @param array<string, mixed> $payload
-     * @param Response $response
-     * @return void
      */
     private function log(string $message, string $resource, array $payload, Response $response): void
     {

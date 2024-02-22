@@ -53,7 +53,7 @@ JSON;
 
         $this->assertCount(count($expectedData), $accessTokenArray);
         foreach ($expectedData as $key => $value) {
-            $this->assertArrayHasKey(Str::camel($key), $accessTokenArray);
+            $this->assertEquals($value, $accessTokenArray[Str::camel($key)]);
         }
     }
 }
