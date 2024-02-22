@@ -48,7 +48,11 @@ JSON;
         ]);
 
         $accessToken = $this->client->getAccessToken($payload);
+        $accessTokenArray = $accessToken->toArray();
 
-        $this->assertCount(10, $accessToken->toArray());
+        $this->assertCount(count($expectedData), $accessTokenArray);
+        foreach ($expectedData as $key => $value) {
+            $this->assertArrayHasKey($key, $accessTokenArray);
+        }
     }
 }

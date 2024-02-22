@@ -76,11 +76,11 @@ final class ProductClientTest extends ClientTestCase
         $productId = 9138;
 
         $payload = new UpdateProductDTO([
-            "name" => 'Test',
-            "visible_in_store" => true,
-            "visible_in_customer_center" => true,
-            "seo_title" => 'Test Product',
-            "fields" => ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
+            'name' => 'Test',
+            'visible_in_store' => true,
+            'visible_in_customer_center' => true,
+            'seo_title' => 'Test Product',
+            'fields' => ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
         ]);
 
         Http::fake([
