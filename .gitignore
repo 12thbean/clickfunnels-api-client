@@ -8,6 +8,7 @@
 
 # Ignore composer files
 vendor
+composer.lock
 
 # Igonre cache/system files
 .phpunit.result.cache

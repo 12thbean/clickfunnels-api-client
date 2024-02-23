@@ -2,9 +2,9 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Auth;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 
-class AccessTokenRequestDTO extends RequestDTO
+class AccessTokenRequestDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $code,

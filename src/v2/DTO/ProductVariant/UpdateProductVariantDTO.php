@@ -2,21 +2,13 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 
-class UpdateProductVariantDTO extends RequestDTO
+class UpdateProductVariantDTO extends BaseDTO
 {
     public function __construct(
         /** @var array<mixed,mixed> $fields */
         public readonly array $fields = [],
     ) {
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function toArray(): array
-    {
-        return static::toArrayR($this->fields);
     }
 }

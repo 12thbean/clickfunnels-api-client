@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Auth\AccessTokenRequestDTO;
+use Zendrop\Data\ToArrayCase;
 
 class AuthClientTest extends ClientTestCase
 {
@@ -49,7 +50,7 @@ JSON;
         ]);
 
         $accessToken = $this->client->getAccessToken($payload);
-        $accessTokenArray = $accessToken->toArray();
+        $accessTokenArray = $accessToken->toArray(ToArrayCase::Camel);
 
         $this->assertCount(count($expectedData), $accessTokenArray);
         foreach ($expectedData as $key => $value) {

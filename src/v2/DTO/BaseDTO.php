@@ -2,11 +2,16 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO;
 
-use BackedEnum;
-use Zendrop\Data\Data;
+use Zendrop\Data\DataInterface;
+use Zendrop\Data\DataTrait;
+use Zendrop\Data\ToArrayInterface;
+use Zendrop\Data\ToArrayTrait;
 
-abstract class BaseDTO extends Data implements DtoInterface
+abstract class BaseDTO implements DtoInterface, DataInterface, ToArrayInterface
 {
+    use ToArrayTrait;
+    use DataTrait;
+
     /**
      * {@inheritDoc}
      */
@@ -28,39 +33,5 @@ abstract class BaseDTO extends Data implements DtoInterface
         }
 
         return $dtoCollection;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function toArray(): array
-    {
-        return static::toArrayR((array)$this);
-    }
-
-    /**
-     * @param mixed $value
-     * @return mixed
-     */
-    protected static function toArrayR(mixed $value): mixed
-    {
-        if ($value instanceof BaseDTO) {
-            $value = $value->toArray();
-            foreach ($value as $key => $item) {
-                $value[$key] = static::toArrayR($item);
-            }
-        }
-
-        if (is_array($value)) {
-            foreach ($value as $key => $item) {
-                $value[$key] = static::toArrayR($item);
-            }
-        }
-
-        if ($value instanceof BackedEnum) {
-            $value = $value->value;
-        }
-
-        return $value;
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant;
 
-use Zendrop\ClickFunnelsApiClient\v2\DTO\RequestDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 
-class CreateProductVariantDTO extends RequestDTO
+class CreateProductVariantDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $name,
