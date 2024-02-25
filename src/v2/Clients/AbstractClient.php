@@ -73,11 +73,10 @@ abstract class AbstractClient
         HttpMethod $method = HttpMethod::GET,
         array $payload = [],
         bool $workspaceRequest = false,
-        ?string $customUrl = null,
     ): Response {
         $requestMethod = $method->value;
 
-        $url = $customUrl ?? $this->generateRequestUrl($resource, $requestMethod, $payload, $workspaceRequest);
+        $url = $this->generateRequestUrl($resource, $requestMethod, $payload, $workspaceRequest);
 
         $options = !in_array($requestMethod, [
             HttpMethod::GET->value,
@@ -94,6 +93,37 @@ abstract class AbstractClient
             $this->handleResponseError(
                 response: $response,
                 resource: $resource,
+                payload: $payload,
+            );
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param array<string, mixed> $payload
+     * @throws ClientException
+     */
+    protected function sendUnauthorizedRequest(
+        string $url,
+        HttpMethod $method = HttpMethod::GET,
+        array $payload = [],
+    ): Response {
+        $requestMethod = $method->value;
+
+        $options = !in_array($requestMethod, [
+            HttpMethod::GET->value,
+            HttpMethod::DELETE->value,
+        ], true) ? ['json' => $payload] : [];
+
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+        ])->send($requestMethod, $url, $options);
+
+        if (!$response->successful() || !$response->json()) {
+            $this->handleResponseError(
+                response: $response,
+                resource: '',
                 payload: $payload,
             );
         }
