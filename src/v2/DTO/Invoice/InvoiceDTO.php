@@ -1,16 +1,18 @@
 <?php
 
-namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Order;
+namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Invoice;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\InvoiceType;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Order\LineItemDTO;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\InvoicePaymentStatus;
 
 class InvoiceDTO extends BaseDTO
 {
     public function __construct(
         public readonly int $id,
         public readonly int $orderId,
-        public readonly string $status,
+        public readonly InvoicePaymentStatus $status,
         public readonly ?string $publicId = null,
         public readonly ?string $dueAmount = null,
         public readonly ?string $totalAmount = null,
