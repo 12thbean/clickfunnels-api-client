@@ -30,7 +30,7 @@ final class ProductClientTest extends ClientTestCase
         ]);
 
         $products = $this->client->getList();
-        $this->assertCount($expectedCount, $products);
+        $this->assertEquals($expectedCount, iterator_count($products->getGenerator()));
     }
 
     public function testGetById(): void
