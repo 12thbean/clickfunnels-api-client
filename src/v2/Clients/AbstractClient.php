@@ -84,10 +84,10 @@ abstract class AbstractClient
         ], true) ? ['json' => $payload] : [];
 
         $response = Http::withHeaders([
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->accessToken,
-            ])
-            ->send($requestMethod, $url, $options);
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $this->accessToken,
+            'User-Agent' => '', // todo temporary workaround to bypass cloudflare filter
+        ])->send($requestMethod, $url, $options);
 
         if (!$response->successful() || !$response->json()) {
             $this->handleResponseError(
@@ -118,6 +118,7 @@ abstract class AbstractClient
 
         $response = Http::withHeaders([
             'Accept' => 'application/json',
+            'User-Agent' => '', // todo temporary workaround to bypass cloudflare filter
         ])->send($requestMethod, $url, $options);
 
         if (!$response->successful() || !$response->json()) {
