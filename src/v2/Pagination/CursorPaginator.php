@@ -3,31 +3,32 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\Pagination;
 
 use Closure;
-use Generator;
+use IteratorAggregate;
+use Traversable;
 use Illuminate\Http\Client\Response;
 
-class CursorPaginator
+class CursorPaginator implements IteratorAggregate
 {
     protected int $perPage = 20;
 
     protected readonly HeaderCursor $cursor;
 
-    /** @var Closure(HeaderCursor):Response $getNextPageCallable */
+    /** @var Closure(HeaderCursor):mixed $getNextPageCallable */
     protected readonly Closure $getNextPageCallable;
 
-    /** @var Closure(Response):mixed $customDataMapCallable*/
+    /** @var ?Closure(mixed):mixed $customDataMapCallable*/
     protected readonly ?Closure $customDataMapCallable;
 
     public function __construct(
-        /** @var callable(HeaderCursor):Response $getNextPageCallable */
+        /** @var callable(HeaderCursor):mixed $getNextPageCallable */
         callable $getNextPageCallable,
-        /** @var null|callable(Response):mixed $customDataMapCallable */
+        /** @var null|callable(mixed):mixed $customDataMapCallable */
         ?callable $customDataMapCallable = null,
         ?HeaderCursor $headerCursor = null
     ) {
-        $this->getNextPageCallable = Closure::fromCallable($getNextPageCallable);
+        $this->getNextPageCallable = $getNextPageCallable(...);
         $this->customDataMapCallable = $customDataMapCallable
-            ? Closure::fromCallable($customDataMapCallable)
+            ? $customDataMapCallable(...)
             : null;
 
         $this->cursor = $headerCursor ?? new HeaderCursor();
@@ -43,7 +44,7 @@ class CursorPaginator
             : $ret;
     }
 
-    public function getGenerator(): Generator
+    public function getIterator(): Traversable
     {
         do {
             $pageResult = $this->next();

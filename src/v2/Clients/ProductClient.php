@@ -16,7 +16,7 @@ class ProductClient extends AbstractClient implements ProductClientInterface
     /**
      * {@inheritDoc}
      */
-    public function getList(?RequestContextDTO $context = null, ?int $after = null): CursorPaginator
+    public function getList(?RequestContextDTO $context = null, ?int $after = null): iterable
     {
         $cursor = new HeaderCursor($after, $context);
 

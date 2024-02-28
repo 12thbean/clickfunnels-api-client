@@ -3,6 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\Clients;
 
 use Illuminate\Support\Facades\Http;
+use Throwable;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClientInterface;
 
@@ -24,8 +25,8 @@ class AbstractClientTest extends ClientTestCase
         $sequenceBuilder = Http::fakeSequence();
         $sequenceBuilder->push(body: $body, status: $status);
         try {
-            $productClient->getList();
-        } catch (\Throwable $exception) {
+            $productClient->getById(123);
+        } catch (Throwable $exception) {
             $this->assertInstanceOf($expectedException, $exception);
         }
     }
