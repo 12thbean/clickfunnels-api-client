@@ -16,10 +16,10 @@ interface ProductClientInterface
      * @param ?RequestContextDTO $context
      * @param ?int $after
      *
-     * @return CursorPaginator
+     * @return iterable<ProductDTO>
      * @link https://apidocs.myclickfunnels.com/tag/Product/#operation/listProducts
      */
-    public function getList(?RequestContextDTO $context = null, ?int $after = null): CursorPaginator;
+    public function getList(?RequestContextDTO $context = null, ?int $after = null): iterable;
 
     /**
      * Returns a product by id.

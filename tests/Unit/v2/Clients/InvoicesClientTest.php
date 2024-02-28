@@ -31,7 +31,7 @@ final class InvoicesClientTest extends ClientTestCase
             new ListInvoicesRequestContextDTO($testOrderId)
         );
 
-        foreach ($paginator->getGenerator() as $invoice) {
+        foreach ($paginator->getIterator() as $invoice) {
             $this->assertInstanceOf(InvoiceDTO::class, $invoice);
         }
     }

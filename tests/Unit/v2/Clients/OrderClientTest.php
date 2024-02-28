@@ -30,7 +30,7 @@ final class OrderClientTest extends ClientTestCase
         ]);
 
         $counter = 0;
-        foreach ($ordersPaginator->getGenerator() as $order) {
+        foreach ($ordersPaginator->getIterator() as $order) {
             $this->assertInstanceOf(OrderDTO::class, $order);
             $counter++;
         }
