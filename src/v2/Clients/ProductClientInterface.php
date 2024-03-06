@@ -5,7 +5,6 @@ namespace Zendrop\ClickFunnelsApiClient\v2\Clients;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\CreateProductDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\ProductDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\UpdateProductDTO;
-use Zendrop\ClickFunnelsApiClient\v2\Pagination\CursorPaginator;
 use Zendrop\ClickFunnelsApiClient\v2\Pagination\RequestContextDTO;
 
 interface ProductClientInterface

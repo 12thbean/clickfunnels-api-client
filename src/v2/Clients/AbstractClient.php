@@ -89,7 +89,11 @@ abstract class AbstractClient
             'User-Agent' => '', // todo temporary workaround to bypass cloudflare filter
         ])->send($requestMethod, $url, $options);
 
-        if (!$response->successful() || !$response->json()) {
+        if ($response->status() === HttpCode::HTTP_NO_CONTENT->value) {
+            return $response;
+        }
+
+        if (!$response->successful() || $response->json() === null) {
             $this->handleResponseError(
                 response: $response,
                 resource: $resource,
