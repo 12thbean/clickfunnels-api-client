@@ -74,6 +74,7 @@ class ProductClient extends AbstractClient implements ProductClientInterface
             payload: [
                 'after' => $cursor->getNext(),
             ],
+            workspaceRequest: true,
         );
     }
 }
