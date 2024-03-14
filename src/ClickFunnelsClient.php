@@ -9,6 +9,7 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductImageClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClient;
+use Zendrop\ClickFunnelsApiClient\v2\Clients\WebhookClient;
 
 class ClickFunnelsClient
 {
@@ -55,6 +56,11 @@ class ClickFunnelsClient
     public function productVariant(): ProductVariantClient
     {
         return $this->make(ProductVariantClient::class);
+    }
+
+    public function webhook(): WebhookClient
+    {
+        return $this->make(WebhookClient::class);
     }
 
     /**
