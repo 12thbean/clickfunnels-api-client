@@ -22,7 +22,7 @@ final class ProductClientTest extends ClientTestCase
 
     public function testGetList(): void
     {
-        $expectedList = ProductListTestData::getList();
+        $expectedList = ProductListTestData::list();
         $expectedCount = count($expectedList);
 
         Http::fake([

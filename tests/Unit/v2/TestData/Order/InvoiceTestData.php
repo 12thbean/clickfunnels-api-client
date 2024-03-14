@@ -6,13 +6,13 @@ use JsonException;
 
 final class InvoiceTestData
 {
-  /**
-   * @return array<int, array<string, mixed>>
-   * @throws JsonException
-   */
-  public static function getList(): array
-  {
-    $jsonResponse = <<<JSON
+    /**
+     * @return array<int, array<string, mixed>>
+     * @throws JsonException
+     */
+    public static function list(): array
+    {
+        $jsonResponse = <<<JSON
         [
           {
             "id": 46282,
@@ -83,6 +83,6 @@ final class InvoiceTestData
         ]
         JSON;
 
-    return json_decode($jsonResponse, true, 512, JSON_THROW_ON_ERROR);
-  }
+        return json_decode($jsonResponse, true, 512, JSON_THROW_ON_ERROR);
+    }
 }
