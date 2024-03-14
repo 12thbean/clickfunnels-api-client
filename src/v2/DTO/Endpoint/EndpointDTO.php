@@ -8,14 +8,14 @@ class EndpointDTO extends BaseDTO
 {
     public function __construct(
         public readonly int $id,
+        public readonly int $workspaceId,
         public readonly string $url,
         public readonly string $name,
-        public readonly int $workspaceId,
+        /** @var string[] */
+        public readonly ?array $eventTypeIds = null,
         public readonly ?string $publicId = null,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
-        /** @var array<int,int> */
-        public readonly ?array $eventTypeIds = null,
         mixed ...$data,
     ) {
         unset($data);
