@@ -23,7 +23,7 @@ final class ProductImageClientTest extends ClientTestCase
 
     public function testGetList(): void
     {
-        $expectedList = ImageListTestData::getList();
+        $expectedList = ImageListTestData::list();
         $expectedCount = count($expectedList);
 
         Http::fake([

@@ -20,7 +20,7 @@ final class InvoicesClientTest extends ClientTestCase
 
     public function testGetAllOrderInvoices(): void
     {
-        $fakeResponseData = InvoiceTestData::getList();
+        $fakeResponseData = InvoiceTestData::list();
         $testOrderId = $fakeResponseData[0]['order_id'];
 
         Http::fake([

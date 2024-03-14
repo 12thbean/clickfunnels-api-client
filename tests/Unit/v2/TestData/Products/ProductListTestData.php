@@ -10,7 +10,7 @@ final class ProductListTestData
      * @return array<int, array<string, mixed>>
      * @throws JsonException
      */
-    public static function getList(): array
+    public static function list(): array
     {
         $jsonResponse = <<<JSON
         [

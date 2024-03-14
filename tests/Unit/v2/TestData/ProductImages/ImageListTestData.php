@@ -7,7 +7,7 @@ final class ImageListTestData
     /**
      * @return array<int, array<string, mixed>>
      */
-    public static function getList(): array
+    public static function list(): array
     {
         return [
             ImageTestData::image(),
