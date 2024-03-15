@@ -14,7 +14,10 @@ class WebhookEndpointClient extends AbstractClient implements WebhookEndpointCli
      */
     public function getList(): array
     {
-        $response = $this->sendRequest('/webhooks/outgoing/endpoints');
+        $response = $this->sendRequest(
+            resource: '/webhooks/outgoing/endpoints',
+            workspaceRequest: true,
+        );
         return EndpointDTO::arrayFromResponse($response->json());
     }
 
