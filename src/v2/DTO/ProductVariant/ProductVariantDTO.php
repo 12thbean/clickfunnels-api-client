@@ -9,9 +9,10 @@ class ProductVariantDTO extends BaseDTO
     public function __construct(
         public readonly int $id,
         public readonly string $name,
-        public readonly int $productId,
-        public readonly string $weightUnit,
+        public readonly ?int $productId = null,
+        public readonly ?string $weightUnit = null,
         public readonly ?string $publicId = null,
+        public readonly ?string $description = null,
         public readonly ?string $sku = null,
         public readonly ?string $outOfStockSales = null,
         public readonly ?float $weight = null,

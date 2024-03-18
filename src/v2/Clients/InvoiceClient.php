@@ -10,7 +10,10 @@ use Zendrop\ClickFunnelsApiClient\v2\Pagination\HeaderCursor;
 
 class InvoiceClient extends AbstractClient
 {
-    public function getListPaginator(
+    /**
+     * @return CursorPaginator<InvoiceDTO>
+     */
+    public function getList(
         ListInvoicesRequestContextDTO $listInvoicesRequestContextDTO,
         ?int $after = null,
     ): CursorPaginator {
@@ -30,7 +33,7 @@ class InvoiceClient extends AbstractClient
         return InvoiceDTO::fromResponse($response->json());
     }
 
-    protected function getListRequest(
+    private function getListRequest(
         ListInvoicesRequestContextDTO $requestContextDTO,
         ?int $after = null,
     ): Response {

@@ -21,7 +21,7 @@ final class OrderClientTest extends ClientTestCase
     public function testGetListPaginator(): void
     {
         $fakeResponseData = OrderTestData::getList();
-        $ordersPaginator = $this->orderClient->getListPaginator();
+        $ordersPaginator = $this->orderClient->getList();
 
         Http::fake([
             '/orders*' => Http::sequence()
@@ -46,7 +46,7 @@ final class OrderClientTest extends ClientTestCase
             '/orders/*' => Http::response($fakeResponseData),
         ]);
 
-        $order = $this->orderClient->get($fakeResponseData['id']);
+        $order = $this->orderClient->getById($fakeResponseData['id']);
         $this->assertEquals($order->id, $fakeResponseData['id']);
     }
 }
