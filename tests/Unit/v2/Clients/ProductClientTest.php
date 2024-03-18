@@ -75,27 +75,27 @@ final class ProductClientTest extends ClientTestCase
     {
         $productId = 9138;
 
-        $payload = new UpdateProductDTO([
-            'name' => 'Test',
-            'visible_in_store' => true,
-            'visible_in_customer_center' => true,
-            'seo_title' => 'Test Product',
-            'fields' => ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
-        ]);
+        $payload = new UpdateProductDTO(
+            name: 'Test 2',
+            visibleInStore: false,
+            visibleInCustomerCenter: false,
+            seoTitle: 'Test Product',
+            tagIds: [],
+        );
 
         Http::fake([
             '*/products*' => Http::response(ProductTestData::product(
                 id: $productId,
-                name: $payload->fields['name'],
-                visibleInStore: $payload->fields['visible_in_store'],
-                visibleInCustomerCenter: $payload->fields['visible_in_customer_center'],
-                seoTitle: $payload->fields['seo_title'],
+                name: $payload->name,
+                visibleInStore: $payload->visibleInStore,
+                visibleInCustomerCenter: $payload->visibleInCustomerCenter,
+                seoTitle: $payload->seoTitle,
             )),
         ]);
 
         $product = $this->client->update($productId, $payload);
-        $this->assertEquals($payload->fields['name'], $product->name);
-        $this->assertEquals($payload->fields['visible_in_store'], $product->visibleInStore);
-        $this->assertEquals($payload->fields['visible_in_customer_center'], $product->visibleInCustomerCenter);
+        $this->assertEquals($payload->name, $product->name);
+        $this->assertEquals($payload->visibleInStore, $product->visibleInStore);
+        $this->assertEquals($payload->visibleInCustomerCenter, $product->visibleInCustomerCenter);
     }
 }
