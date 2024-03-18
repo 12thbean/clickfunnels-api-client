@@ -7,6 +7,9 @@ use IteratorAggregate;
 use Traversable;
 use Illuminate\Http\Client\Response;
 
+/**
+ * @template T
+ */
 class CursorPaginator implements IteratorAggregate
 {
     protected int $perPage = 20;
@@ -44,6 +47,9 @@ class CursorPaginator implements IteratorAggregate
             : $ret;
     }
 
+    /**
+     * @return Traversable<mixed,T>
+     */
     public function getIterator(): Traversable
     {
         do {

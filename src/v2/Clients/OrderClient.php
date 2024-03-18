@@ -10,7 +10,10 @@ use Zendrop\ClickFunnelsApiClient\v2\Pagination\HeaderCursor;
 
 class OrderClient extends AbstractClient
 {
-    public function getListPaginator(
+    /**
+     * @return CursorPaginator<OrderDTO>
+     */
+    public function getList(
         ?ListOrdersRequestContextDTO $listOrdersRequestContextDTO = null,
         ?int $after = null,
     ): CursorPaginator {
@@ -24,7 +27,13 @@ class OrderClient extends AbstractClient
         );
     }
 
-    protected function getListRequest(
+    public function getById(int $id): OrderDTO
+    {
+        $response = $this->sendRequest("/orders/{$id}");
+        return OrderDTO::fromResponse($response->json());
+    }
+
+    private function getListRequest(
         ?ListOrdersRequestContextDTO $listOrdersRequestContextDTO = null,
         ?int $after = null,
     ): Response {
@@ -46,11 +55,5 @@ class OrderClient extends AbstractClient
         );
 
         return $response;
-    }
-
-    public function get(int $id): OrderDTO
-    {
-        $response = $this->sendRequest("/orders/{$id}");
-        return OrderDTO::fromResponse($response->json());
     }
 }

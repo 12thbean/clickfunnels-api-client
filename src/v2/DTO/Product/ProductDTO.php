@@ -9,7 +9,7 @@ class ProductDTO extends BaseDTO
     public function __construct(
         public readonly int $id,
         public readonly string $name,
-        public readonly int $workspaceId,
+        public readonly ?int $workspaceId = null,
         public readonly ?string $publicId = null,
         public readonly ?string $currentPath = null,
         public readonly ?bool $archived = null,

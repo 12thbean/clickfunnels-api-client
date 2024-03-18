@@ -7,6 +7,8 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\Contact\ContactDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Contact\ContactGroupDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Pagination\PageDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Workspace\WorkspaceDTO;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\OrderBillingStatus;
+use Zendrop\Data\ArrayOf;
 
 class OrderDTO extends BaseDTO
 {
@@ -41,7 +43,7 @@ class OrderDTO extends BaseDTO
         public readonly ?int $pageId = null,
         public readonly ?string $notes = null,
         public readonly ?bool $inTrial = null,
-        public readonly ?string $billingStatus = null,
+        public readonly ?OrderBillingStatus $billingStatus = null,
         public readonly ?string $serviceStatus = null,
         public readonly ?string $orderType = null,
         public readonly ?string $nextChargeAt = null,
@@ -66,6 +68,7 @@ class OrderDTO extends BaseDTO
         /** @var array<int,SegmentDTO>|null */
         public readonly ?array $segments = null,
         /** @var array<int,LineItemDTO>|null */
+        #[ArrayOf(LineItemDTO::class)]
         public readonly ?array $lineItems = null,
         mixed ...$data,
     ) {

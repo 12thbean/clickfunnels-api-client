@@ -27,7 +27,7 @@ final class InvoicesClientTest extends ClientTestCase
             '/orders/*/invoices*' => Http::response($fakeResponseData),
         ]);
 
-        $paginator = $this->invoiceClient->getListPaginator(
+        $paginator = $this->invoiceClient->getList(
             new ListInvoicesRequestContextDTO($testOrderId)
         );
 

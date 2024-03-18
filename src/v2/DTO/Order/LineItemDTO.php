@@ -14,7 +14,7 @@ class LineItemDTO extends BaseDTO
         public readonly int $orderId,
         public readonly ProductDTO $originalProduct,
         public readonly ProductPriceDTO $productsPrice,
-        public readonly string $publicId = null,
+        public readonly ?string $publicId = null,
         public readonly ?int $quantity = null,
         public readonly ?string $prorated = null,
         public readonly ?string $createdAt = null,
