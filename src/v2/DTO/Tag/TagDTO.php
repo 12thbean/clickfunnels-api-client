@@ -7,8 +7,8 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 class TagDTO extends BaseDTO
 {
     public function __construct(
-        public readonly string $id,
-        public readonly string $workspaceId,
+        public readonly int $id,
+        public readonly int $workspaceId,
         public readonly string $name,
         public readonly string $color,
         public readonly ?string $publicId = null,
