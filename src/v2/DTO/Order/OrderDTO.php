@@ -65,11 +65,13 @@ class OrderDTO extends BaseDTO
         /** @var array<int,int>|null */
         public readonly ?array $discountIds = null,
         /** @var array<int,ContactGroupDTO> */
+        #[ArrayOf(ContactGroupDTO::class)]
         public readonly ?array $contactGroups = null,
         /** @var array<int,SegmentDTO>|null */
+        #[ArrayOf(SegmentDTO::class)]
         public readonly ?array $segments = null,
-        /** @var array<int,LineItemDTO>|null */
-        #[ArrayOf(LineItemDTO::class)]
+        /** @var array<int,OrderLineItemDTO>|null */
+        #[ArrayOf(OrderLineItemDTO::class)]
         public readonly ?array $lineItems = null,
         mixed ...$data,
     ) {

@@ -4,8 +4,9 @@ namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Invoice;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\InvoiceType;
-use Zendrop\ClickFunnelsApiClient\v2\DTO\Order\LineItemDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Invoice\InvoiceLineItemDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\InvoicePaymentStatus;
+use Zendrop\Data\ArrayOf;
 
 class InvoiceDTO extends BaseDTO
 {
@@ -27,7 +28,8 @@ class InvoiceDTO extends BaseDTO
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
         public readonly ?InvoiceType $invoiceType = null,
-        /** @var array<int,LineItemDTO>|null */
+        /** @var array<int,InvoiceLineItemDTO>|null */
+        #[ArrayOf(InvoiceLineItemDTO::class)]
         public readonly ?array $lineItems = null,
         mixed ...$data,
     ) {
