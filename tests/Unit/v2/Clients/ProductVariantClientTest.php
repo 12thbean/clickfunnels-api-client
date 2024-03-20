@@ -10,8 +10,10 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\CreateProductVariantDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\ProductVariantDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\UpdateProductVariantDTO;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\ProductType;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\WeightUnit;
 
-class ProductVariantClientTest extends ClientTestCase
+final class ProductVariantClientTest extends ClientTestCase
 {
     private ProductVariantClientInterface $client;
 
@@ -81,13 +83,14 @@ class ProductVariantClientTest extends ClientTestCase
 
         $variant = $this->client->update(
             id: $variantId,
-            payload: new UpdateProductVariantDTO([
-                'name' => $expectedResponse['name'],
-                'weight_unit' => 'lb',
-                'height' => $expectedResponse['height'],
-                'width' => $expectedResponse['width'],
-                'length' => $expectedResponse['length'],
-            ]),
+            payload: new UpdateProductVariantDTO(
+                name: $expectedResponse['name'],
+                productType: ProductType::PHYSICAL,
+                weightUnit: WeightUnit::LB,
+                height: $expectedResponse['height'],
+                width: $expectedResponse['width'],
+                length: $expectedResponse['length'],
+            ),
         );
         $this->assertEquals($expectedResponse['id'], $variant->id);
         $this->assertEquals($expectedResponse['product_id'], $variant->productId);
