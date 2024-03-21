@@ -36,12 +36,17 @@ class WebhookEndpointClientTest extends ClientTestCase
     public function testGetById(): void
     {
         $expectedResponse = WebhookEndpointTestData::webhookEndpoint();
+
         Http::fake([
             '/webhooks/outgoing/endpoints/*' => Http::response($expectedResponse),
         ]);
 
         $webhookEndpoint = $this->client->getById(1);
         $this->assertInstanceOf(EndpointDTO::class, $webhookEndpoint);
+
+        $this->assertEquals($expectedResponse['id'], $webhookEndpoint->id);
+        $this->assertEquals($expectedResponse['url'], $webhookEndpoint->url);
+        $this->assertEquals($expectedResponse['name'], $webhookEndpoint->name);
     }
 
     public function testCreate(): void

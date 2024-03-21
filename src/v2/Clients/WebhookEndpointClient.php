@@ -15,7 +15,7 @@ class WebhookEndpointClient extends AbstractClient implements WebhookEndpointCli
     public function getList(): array
     {
         $response = $this->sendRequest(
-            resource: '/webhooks/outgoing/endpoints',
+            resource: 'webhooks/outgoing/endpoints',
             workspaceRequest: true,
         );
         return EndpointDTO::arrayFromResponse($response->json());
@@ -26,7 +26,7 @@ class WebhookEndpointClient extends AbstractClient implements WebhookEndpointCli
      */
     public function getById(int $id): EndpointDTO
     {
-        $response = $this->sendRequest("/webhooks/outgoing/endpoints/$id");
+        $response = $this->sendRequest("webhooks/outgoing/endpoints/$id");
         return EndpointDTO::fromResponse($response->json());
     }
 
@@ -36,7 +36,7 @@ class WebhookEndpointClient extends AbstractClient implements WebhookEndpointCli
     public function create(CreateEndpointDTO $payload): EndpointDTO
     {
         $response = $this->sendRequest(
-            resource: '/webhooks/outgoing/endpoints',
+            resource: 'webhooks/outgoing/endpoints',
             method: HttpMethod::POST,
             payload: [
                 'webhooks_outgoing_endpoint' => $payload->toArray(),
@@ -52,7 +52,7 @@ class WebhookEndpointClient extends AbstractClient implements WebhookEndpointCli
     public function update(int $id, UpdateEndpointDTO $payload): EndpointDTO
     {
         $response = $this->sendRequest(
-            resource: "/webhooks/outgoing/endpoints/$id",
+            resource: "webhooks/outgoing/endpoints/$id",
             method: HttpMethod::PUT,
             payload: [
                 'webhooks_outgoing_endpoint' => $payload->toArray(),

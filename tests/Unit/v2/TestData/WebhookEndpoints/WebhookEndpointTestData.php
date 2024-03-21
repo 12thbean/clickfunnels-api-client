@@ -7,7 +7,7 @@ use JsonException;
 final class WebhookEndpointTestData
 {
     /**
-     * @return array<string, mixed>>
+     * @return array<string, mixed>
      * @throws JsonException
      */
     public static function webhookEndpoint(int $id = 1): array
