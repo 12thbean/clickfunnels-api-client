@@ -10,7 +10,7 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice\CreateProductPriceDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice\ProductPriceDTO;
 
-class ProductPriceClientTest extends ClientTestCase
+final class ProductPriceClientTest extends ClientTestCase
 {
     private ProductPriceClientInterface $client;
 
