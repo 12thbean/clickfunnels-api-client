@@ -30,8 +30,8 @@ class ProductPriceDTO extends BaseDTO
         public readonly ?string $compareAtAmount = null,
         public readonly ?string $key = null,
         public readonly ?bool $archived = null,
-        public readonly ?bool $createdAt = null,
-        public readonly ?bool $updatedAt = null,
+        public readonly ?string $createdAt = null,
+        public readonly ?string $updatedAt = null,
         public readonly ?PaymentType $paymentType = null,
         mixed ...$data,
     ) {
