@@ -9,6 +9,7 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClientInterface;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\CreateProductDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\UpdateProductDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\VariantPropertyDTO;
 
 final class ProductClientTest extends ClientTestCase
 {
@@ -54,7 +55,9 @@ final class ProductClientTest extends ClientTestCase
             visibleInStore: true,
             visibleInCustomerCenter: true,
             seoTitle: 'Test Product',
-            fields: ['name', 'visible_in_store', 'visible_in_customer_center', 'seo_title', 'seo_description'],
+            variantProperties: [
+                new VariantPropertyDTO(name: 'Color'),
+            ],
         );
 
         Http::fake([
