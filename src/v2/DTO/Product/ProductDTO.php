@@ -3,6 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Product;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\Data\ArrayOf;
 
 class ProductDTO extends BaseDTO
 {
@@ -32,6 +33,9 @@ class ProductDTO extends BaseDTO
         public readonly ?array $priceIds = null,
         /** @var array<int,int> */
         public readonly ?array $tagIds = null,
+        /** @var VariantPropertyDTO[] $variantProperties */
+        #[ArrayOf(VariantPropertyDTO::class)]
+        public readonly ?array $variantProperties = null,
         mixed ...$data,
     ) {
         unset($data);

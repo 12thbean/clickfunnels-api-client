@@ -60,7 +60,7 @@ final class ProductVariantClientTest extends ClientTestCase
             productId: $productId,
             payload: new CreateProductVariantDTO(
                 name: $expectedResponse['name'],
-                weightUnit: 'lb',
+                weightUnit: WeightUnit::LB,
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
                 length: $expectedResponse['length'],

@@ -44,6 +44,12 @@ final class ProductTestData
             "tag_ids":[851],
             "redirect_funnel_id":null,
             "cancellation_funnel_url":null,
+            "variant_properties": [
+                {
+                    "id": 16061,
+                    "name": "Color"
+                }
+            ],
             "created_at":"2024-01-30T15:38:03.144Z",
             "updated_at":"2024-01-31T21:39:22.457Z"
         }

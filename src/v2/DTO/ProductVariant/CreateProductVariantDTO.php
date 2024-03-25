@@ -3,12 +3,15 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\ProductType;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\WeightUnit;
 
 class CreateProductVariantDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $name,
-        public readonly string $weightUnit,
+        public readonly WeightUnit $weightUnit,
+        public readonly ProductType $productType = ProductType::PHYSICAL,
         public readonly ?string $sku = null,
         public readonly ?string $outOfStockSales = null,
         public readonly ?float $weight = null,
@@ -23,6 +26,10 @@ class CreateProductVariantDTO extends BaseDTO
         public readonly ?bool $visible = null,
         public readonly ?bool $fulfillmentRequired = null,
         public readonly ?string $countryOfManufactureId = null,
+        /** @var int[] $imageIds */
+        public readonly ?array $imageIds = null,
+        /** @var int[] $fulfillmentsLocationIds */
+        public readonly ?array $fulfillmentsLocationIds = null,
     ) {
     }
 }

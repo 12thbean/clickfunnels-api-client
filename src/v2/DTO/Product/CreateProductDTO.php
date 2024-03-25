@@ -23,6 +23,8 @@ class CreateProductDTO extends BaseDTO
         public readonly ?array $variantIds = null,
         /** @var int[] $priceIds */
         public readonly ?array $priceIds = null,
+        /** @var VariantPropertyDTO[] $variantProperties */
+        public readonly ?array $variantProperties = null,
         mixed ...$data,
     ) {
         unset($data);
