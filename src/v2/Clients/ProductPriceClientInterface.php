@@ -29,11 +29,11 @@ interface ProductPriceClientInterface
     /**
      * Creates a new product price.
      *
-     * @param int $productId
+     * @param int $variantId
      * @param CreateProductPriceDTO $payload
      *
      * @return ProductPriceDTO
      * @link https://apidocs.myclickfunnels.com/tag/Products::Price#operation/createProductsPrices
      */
-    public function create(int $productId, CreateProductPriceDTO $payload): ProductPriceDTO;
+    public function create(int $variantId, CreateProductPriceDTO $payload): ProductPriceDTO;
 }
