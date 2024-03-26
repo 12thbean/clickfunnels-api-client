@@ -29,10 +29,10 @@ class ProductPriceClient extends AbstractClient implements ProductPriceClientInt
     /**
      * {@inheritDoc}
      */
-    public function create(int $productId, CreateProductPriceDTO $payload): ProductPriceDTO
+    public function create(int $variantId, CreateProductPriceDTO $payload): ProductPriceDTO
     {
         $response = $this->sendRequest(
-            resource: "/products/{$productId}/prices",
+            resource: "/products/variants/{$variantId}/prices",
             method: HttpMethod::POST,
             payload: [
                 'products_price' => $payload->toArray(),
