@@ -3,6 +3,7 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\PropertyValueDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\ProductType;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\Products\WeightUnit;
 
@@ -30,6 +31,8 @@ class CreateProductVariantDTO extends BaseDTO
         public readonly ?array $imageIds = null,
         /** @var int[] $fulfillmentsLocationIds */
         public readonly ?array $fulfillmentsLocationIds = null,
+        /** @var PropertyValueDTO[] $variantProperies */
+        public readonly array $variantProperies = [],
     ) {
     }
 }
