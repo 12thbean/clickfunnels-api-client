@@ -65,7 +65,7 @@ final class ProductVariantClientTest extends ClientTestCase
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
                 length: $expectedResponse['length'],
-                variantProperies: [
+                propertiesValues: [
                     new PropertyValueDTO(
                         propertyId: 5031,
                         value: 'White',

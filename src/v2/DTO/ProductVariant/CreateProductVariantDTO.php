@@ -31,8 +31,8 @@ class CreateProductVariantDTO extends BaseDTO
         public readonly ?array $imageIds = null,
         /** @var int[] $fulfillmentsLocationIds */
         public readonly ?array $fulfillmentsLocationIds = null,
-        /** @var PropertyValueDTO[] $variantProperies */
-        public readonly array $variantProperies = [],
+        /** @var PropertyValueDTO[] $propertiesValues */
+        public readonly array $propertiesValues = [],
     ) {
     }
 }
