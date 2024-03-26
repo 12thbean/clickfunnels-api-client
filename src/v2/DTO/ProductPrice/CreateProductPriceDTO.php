@@ -3,32 +3,31 @@
 namespace Zendrop\ClickFunnelsApiClient\v2\DTO\ProductPrice;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
+use Zendrop\Data\Skippable;
 
 class CreateProductPriceDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $amount,
         public readonly string $currency,
-        public readonly ?int $duration = null,
-        public readonly ?string $interval = null,
-        public readonly ?string $trialInterval = null,
-        public readonly ?string $trialDuration = null,
-        public readonly ?int $intervalCount = null,
-        public readonly ?string $trialAmount = null,
-        public readonly ?string $name = null,
-        public readonly ?string $cost = null,
-        public readonly ?string $setupAmount = null,
-        public readonly ?bool $selfCancel = null,
-        public readonly ?bool $selfUpgrade = null,
-        public readonly ?bool $selfDowngrade = null,
-        public readonly ?bool $selfReactivate = null,
-        public readonly ?string $paymentType = null,
-        public readonly ?bool $visible = null,
-        public readonly ?string $compareAtAmount = null,
-        public readonly ?string $key = null,
-        public readonly ?bool $archived = null,
-        /** @var string[] $fields */
-        public readonly array $fields = [],
+        public readonly null|int|Skippable $duration = Skippable::Skipped,
+        public readonly null|string|Skippable $interval = Skippable::Skipped,
+        public readonly null|string|Skippable $trialInterval = Skippable::Skipped,
+        public readonly null|string|Skippable $trialDuration = Skippable::Skipped,
+        public readonly null|int|Skippable $intervalCount = Skippable::Skipped,
+        public readonly null|string|Skippable $trialAmount = Skippable::Skipped,
+        public readonly null|string|Skippable $name = Skippable::Skipped,
+        public readonly null|string|Skippable $cost = Skippable::Skipped,
+        public readonly null|string|Skippable $setupAmount = Skippable::Skipped,
+        public readonly null|bool|Skippable $selfCancel = Skippable::Skipped,
+        public readonly null|bool|Skippable $selfUpgrade = Skippable::Skipped,
+        public readonly null|bool|Skippable $selfDowngrade = Skippable::Skipped,
+        public readonly null|bool|Skippable $selfReactivate = Skippable::Skipped,
+        public readonly null|string|Skippable $paymentType = Skippable::Skipped,
+        public readonly null|bool|Skippable $visible = Skippable::Skipped,
+        public readonly null|string|Skippable $compareAtAmount = Skippable::Skipped,
+        public readonly null|string|Skippable $key = Skippable::Skipped,
+        public readonly null|bool|Skippable $archived = Skippable::Skipped,
     ) {
     }
 }

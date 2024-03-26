@@ -47,12 +47,6 @@ final class ProductPriceClientTest extends ClientTestCase
             amount: '29.00',
             currency: 'USD',
             duration: 0,
-            interval: '',
-            trialInterval: '',
-            trialDuration: '',
-            intervalCount: 0,
-            trialAmount: '',
-            name: 'Special Price',
         );
 
         $expectedResponse = PriceTestData::price();
