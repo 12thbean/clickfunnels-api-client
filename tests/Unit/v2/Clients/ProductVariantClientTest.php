@@ -7,6 +7,7 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductVariants\Variant
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\ProductVariants\VariantTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductVariantClientInterface;
+use Zendrop\ClickFunnelsApiClient\v2\DTO\Product\PropertyValueDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\CreateProductVariantDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\ProductVariantDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\ProductVariant\UpdateProductVariantDTO;
@@ -64,6 +65,12 @@ final class ProductVariantClientTest extends ClientTestCase
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
                 length: $expectedResponse['length'],
+                variantProperies: [
+                    new PropertyValueDTO(
+                        propertyId: 5031,
+                        value: 'White',
+                    ),
+                ],
             ),
         );
         $this->assertEquals($expectedResponse['id'], $variant->id);
