@@ -7,6 +7,7 @@ use Zendrop\ClickFunnelsApiClient\Exceptions\ConflictRequestException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\ForbiddenException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\InvalidRequestException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\NotFoundException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\ServiceUnavailableException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\UnauthorizedException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\UnexpectedResponseException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\ValidationException;
@@ -65,6 +66,11 @@ final class ErrorResponseDataProvider
             'body' => null,
             'status' => HttpCode::HTTP_OK->value,
             'expectedException' => UnexpectedResponseException::class,
+        ];
+        yield [
+            'body' => null,
+            'status' => HttpCode::HTTP_SERVICE_UNAVAILABLE->value,
+            'expectedException' => ServiceUnavailableException::class,
         ];
     }
 }

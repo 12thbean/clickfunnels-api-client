@@ -12,4 +12,5 @@ enum HttpCode: int
     case HTTP_NOT_FOUND = 404;
     case HTTP_CONFLICT_REQUEST = 409;
     case HTTP_VALIDATION_ERROR = 422;
+    case HTTP_SERVICE_UNAVAILABLE = 503;
 }
