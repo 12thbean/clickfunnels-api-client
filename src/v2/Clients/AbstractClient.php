@@ -12,6 +12,7 @@ use Zendrop\ClickFunnelsApiClient\Exceptions\ConflictRequestException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\ForbiddenException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\InvalidRequestException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\NotFoundException;
+use Zendrop\ClickFunnelsApiClient\Exceptions\ServiceUnavailableException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\UnauthorizedException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\UnexpectedResponseException;
 use Zendrop\ClickFunnelsApiClient\Exceptions\ValidationException;
@@ -199,6 +200,11 @@ abstract class AbstractClient
         if ($response->status() === HttpCode::HTTP_VALIDATION_ERROR->value) {
             $this->log('Validation error', $resource, $payload, $response);
             throw new ValidationException();
+        }
+
+        if ($response->status() === HttpCode::HTTP_SERVICE_UNAVAILABLE->value) {
+            $this->log('Service unavailable', $resource, $payload, $response);
+            throw new ServiceUnavailableException();
         }
 
         $this->log('Unexpected response', $resource, $payload, $response);
