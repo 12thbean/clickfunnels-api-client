@@ -30,4 +30,14 @@ enum OrderBillingStatus: string
 
     /** Invoice amount is partially refunded to the customer. */
     case PARTIALLY_REFUNDED = 'partially-refunded';
+
+    case PENDING = 'pending';
+
+    case DRAFT = 'draft';
+
+    case FAILED = 'failed';
+
+    case DELINQUENT = 'delinquent';
+
+    case REFUND_PENDING = 'refund-pending';
 }
