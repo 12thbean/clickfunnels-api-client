@@ -48,6 +48,11 @@ final class ProductVariantClientTest extends ClientTestCase
         $this->assertEquals($variantId, $variant->id);
         $this->assertEquals($expectedResponse['name'], $variant->name);
         $this->assertEquals($expectedResponse['product_id'], $variant->productId);
+        $this->assertEquals($expectedResponse['product_type'], $variant->productType->value);
+        $this->assertEquals($expectedResponse['fulfillments_location_ids'], $variant->fulfillmentsLocationIds);
+        $this->assertEquals($expectedResponse['image_ids'], $variant->imageIds);
+        $this->assertEquals($expectedResponse['default'], $variant->default);
+        $this->assertEquals($expectedResponse['properties_values'][0], $variant->propertiesValues[0]->toArray());
     }
 
     public function testCreate(): void
