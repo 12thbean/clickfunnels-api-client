@@ -9,6 +9,7 @@ use Zendrop\ClickFunnelsApiClient\v2\DTO\Pagination\PageDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Workspace\WorkspaceDTO;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\OrderBillingStatus;
 use Zendrop\ClickFunnelsApiClient\v2\Enum\OrderServiceStatus;
+use Zendrop\ClickFunnelsApiClient\v2\Enum\OrderType;
 use Zendrop\Data\ArrayOf;
 
 class OrderDTO extends BaseDTO
@@ -46,7 +47,7 @@ class OrderDTO extends BaseDTO
         public readonly ?bool $inTrial = null,
         public readonly ?OrderBillingStatus $billingStatus = null,
         public readonly ?OrderServiceStatus $serviceStatus = null,
-        public readonly ?string $orderType = null,
+        public readonly ?OrderType $orderType = null,
         public readonly ?string $nextChargeAt = null,
         public readonly ?string $taxAmount = null,
         public readonly ?string $trialEndAt = null,
