@@ -9,8 +9,8 @@ class UpdateFulfillmentLocationDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $name,
-        public readonly string $addressName,
-        public readonly string $emailAddress,
+        public readonly ?string $addressName = null,
+        public readonly ?string $emailAddress = null,
         public readonly ?string $phoneNumber = null,
         public readonly ?bool $externalApp = false,
         public readonly ?AddressDTO $address = null,
