@@ -46,6 +46,7 @@ final class ProductClientTest extends ClientTestCase
         $product = $this->client->getById($productId);
         $this->assertEquals($productId, $product->id);
         $this->assertEquals($expectedProductData['name'], $product->name);
+        $this->assertEquals($expectedProductData['default_variant_id'], $product->defaultVariantId);
     }
 
     public function testCreate(): void
@@ -60,18 +61,21 @@ final class ProductClientTest extends ClientTestCase
             ],
         );
 
+        $mockedResponse = ProductTestData::product(
+            name: $payload->name,
+            visibleInStore: $payload->visibleInStore,
+            seoTitle: $payload->seoTitle,
+        );
+
         Http::fake([
-            '*/products' => Http::response(ProductTestData::product(
-                name: $payload->name,
-                visibleInStore: $payload->visibleInStore,
-                seoTitle: $payload->seoTitle,
-            )),
+            '*/products' => Http::response($mockedResponse),
         ]);
 
         $product = $this->client->create($payload);
         $this->assertEquals($payload->name, $product->name);
         $this->assertEquals($payload->visibleInStore, $product->visibleInStore);
         $this->assertEquals($payload->seoTitle, $product->seoTitle);
+        $this->assertEquals($mockedResponse['default_variant_id'], $product->defaultVariantId);
     }
 
     public function testUpdate(): void

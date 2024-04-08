@@ -16,7 +16,7 @@ interface ProductClientInterface
      * @param ?int $after
      *
      * @return iterable<ProductDTO>
-     * @link https://apidocs.myclickfunnels.com/tag/Product/#operation/listProducts
+     * @link https://developers.myclickfunnels.com/reference/listproducts
      */
     public function getList(?RequestContextDTO $context = null, ?int $after = null): iterable;
 
@@ -25,7 +25,7 @@ interface ProductClientInterface
      *
      * @param int $id
      * @return ProductDTO
-     * @link https://apidocs.myclickfunnels.com/tag/Product#operation/getProducts
+     * @link https://developers.myclickfunnels.com/reference/getproducts
      */
     public function getById(int $id): ProductDTO;
 
@@ -35,7 +35,7 @@ interface ProductClientInterface
      * @param CreateProductDTO $payload
      *
      * @return ProductDTO
-     * @link https://apidocs.myclickfunnels.com/tag/Product#operation/createProducts
+     * @link https://developers.myclickfunnels.com/reference/createproducts
      */
     public function create(CreateProductDTO $payload): ProductDTO;
 
@@ -46,7 +46,7 @@ interface ProductClientInterface
      * @param UpdateProductDTO $payload
      *
      * @return ProductDTO
-     * @link https://apidocs.myclickfunnels.com/tag/Product#operation/updateProducts
+     * @link https://developers.myclickfunnels.com/reference/updateproducts
      */
     public function update(int $id, UpdateProductDTO $payload): ProductDTO;
 }
