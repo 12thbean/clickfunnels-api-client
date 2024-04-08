@@ -17,6 +17,11 @@
     </rule>
     <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
     <rule ref="Squiz.PHP.CommentedOutCode"/>
+    
+    <!-- Excluding Squiz.Functions.MultiLineFunctionDeclaration.Empty rule -->
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.EmptyLine">
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.EmptyLine"/>
+    </rule>
 
     <arg name="basepath" value="."/>
 
