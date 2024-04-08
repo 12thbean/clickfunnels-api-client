@@ -28,6 +28,7 @@ final class ProductTestData
             "id":10130,
             "public_id":"jvxrVN",
             "workspace_id":1718,
+            "default_variant_id": 19793,
             "name":"My Workspace's First Product",
             "current_path":"/my-workspace-s-first-product",
             "archived":false,
