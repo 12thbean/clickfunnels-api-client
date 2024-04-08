@@ -12,7 +12,7 @@ class CreateProductVariantDTO extends BaseDTO
     public function __construct(
         public readonly string $name,
         public readonly WeightUnit $weightUnit,
-        public readonly ProductType $productType = ProductType::PHYSICAL,
+        public readonly ProductType $productType = ProductType::Physical,
         public readonly ?string $sku = null,
         public readonly ?string $outOfStockSales = null,
         public readonly ?float $weight = null,

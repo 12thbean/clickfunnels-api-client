@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Http;
 use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Order\OrderTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\OrderClient;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Order\OrderDTO;
-use Zendrop\ClickFunnelsApiClient\v2\Pagination\CursorPaginator;
 
 final class OrderClientTest extends ClientTestCase
 {

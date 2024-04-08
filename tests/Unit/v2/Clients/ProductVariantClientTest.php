@@ -97,7 +97,7 @@ final class ProductVariantClientTest extends ClientTestCase
             id: $variantId,
             payload: new UpdateProductVariantDTO(
                 name: $expectedResponse['name'],
-                productType: ProductType::PHYSICAL,
+                productType: ProductType::Physical,
                 weightUnit: WeightUnit::LB,
                 height: $expectedResponse['height'],
                 width: $expectedResponse['width'],
