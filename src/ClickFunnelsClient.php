@@ -4,6 +4,7 @@ namespace Zendrop\ClickFunnelsApiClient;
 
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AbstractClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\AuthClient;
+use Zendrop\ClickFunnelsApiClient\v2\Clients\FulfillmentClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\FulfillmentLocationClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\InvoiceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\OrderClient;
@@ -34,6 +35,11 @@ class ClickFunnelsClient
     public function auth(): AuthClient
     {
         return $this->make(AuthClient::class);
+    }
+
+    public function fulfillment(): FulfillmentClient
+    {
+        return $this->make(FulfillmentClient::class);
     }
 
     public function fulfillmentLocation(): FulfillmentLocationClient

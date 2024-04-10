@@ -31,7 +31,7 @@ class ProductImageClient extends AbstractClient implements ProductImageClientInt
     /**
      * {@inheritDoc}
      */
-    public function getById(int $id): ?ProductImageDTO
+    public function getById(int $id): ProductImageDTO
     {
         $response = $this->sendRequest("/images/{$id}");
         return ProductImageDTO::fromResponse($response->json());

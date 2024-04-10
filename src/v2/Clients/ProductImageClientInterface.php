@@ -25,11 +25,11 @@ interface ProductImageClientInterface
      *
      * @param int $id
      *
-     * @return ProductImageDTO|null
+     * @return ProductImageDTO
      * @throws \Zendrop\ClickFunnelsApiClient\Exceptions\ClientException
      * @link https://developers.myclickfunnels.com/reference/getimages
      */
-    public function getById(int $id): ?ProductImageDTO;
+    public function getById(int $id): ProductImageDTO;
 
     /**
      * Creates new image.
