@@ -12,6 +12,8 @@ class FulfillmentDTO extends BaseDTO
         /** Fulfillment ID */
         public readonly int $id,
 
+        public readonly int $workspaceId,
+
         /** The contact that made the order that is being fulfilled. */
         public readonly int $contactId,
 
@@ -36,7 +38,7 @@ class FulfillmentDTO extends BaseDTO
         /** An auto-generated number of the fulfillment */
         public readonly ?int $fulfillmentNumber = null,
 
-        /** @var array<int,FulfillmentInvoiceLineItem>|null */
+        /** @var ?FulfillmentInvoiceLineItem[] */
         #[ArrayOf(FulfillmentInvoiceLineItem::class)]
         public readonly ?array $includedInvoicesLineItems = null,
 
