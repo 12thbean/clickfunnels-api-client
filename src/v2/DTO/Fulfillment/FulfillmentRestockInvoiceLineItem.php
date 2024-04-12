@@ -4,14 +4,11 @@ namespace Zendrop\ClickFunnelsApiClient\v2\DTO\Fulfillment;
 
 use Zendrop\ClickFunnelsApiClient\v2\DTO\BaseDTO;
 
-class FulfillmentInvoiceLineItem extends BaseDTO
+class FulfillmentRestockInvoiceLineItem extends BaseDTO
 {
     public function __construct(
         /** Included orders line item ID */
         public readonly int $id,
-
-        /** Fulfillment ID */
-        public readonly int $fulfillmentId,
 
         /** The quantity of the invoices line item subject that is part of this fulfillment. Your stock must have enough quantity for a successful fulfillment. */
         public readonly int $quantity,
