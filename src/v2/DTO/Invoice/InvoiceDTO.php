@@ -14,6 +14,7 @@ class InvoiceDTO extends BaseDTO
         public readonly int $id,
         public readonly int $orderId,
         public readonly InvoicePaymentStatus $status,
+        public readonly bool $eligibleForFulfillment = false,
         public readonly ?string $invoiceNumber = null,
         public readonly ?string $publicId = null,
         public readonly ?string $dueAmount = null,
