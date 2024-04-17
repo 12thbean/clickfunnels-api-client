@@ -5,10 +5,10 @@ namespace Zendrop\ClickFunnelsApiClient\v2\Pagination;
 use Closure;
 use IteratorAggregate;
 use Traversable;
-use Illuminate\Http\Client\Response;
 
 /**
  * @template T
+ * @implements IteratorAggregate<T>
  */
 class CursorPaginator implements IteratorAggregate
 {
