@@ -13,11 +13,9 @@ class OrderClient extends AbstractClient
     /**
      * @return CursorPaginator<OrderDTO>
      */
-    public function getList(
-        ?ListOrdersRequestContextDTO $listOrdersRequestContextDTO = null,
-        ?int $after = null,
-    ): CursorPaginator {
-        $cursor = new HeaderCursor($after, $listOrdersRequestContextDTO);
+    public function getList(?HeaderCursor $headerCursor = null): CursorPaginator
+    {
+        $cursor = $headerCursor ?? new HeaderCursor();
 
         return new CursorPaginator(
             // @phpstan-ignore-next-line
@@ -44,7 +42,7 @@ class OrderClient extends AbstractClient
             'filter' => $context->filter?->toArray(),
         ];
 
-        $response = $this->sendRequest(
+        return $this->sendRequest(
             resource: '/orders',
             payload: array_filter(
                 $payload,
@@ -53,7 +51,5 @@ class OrderClient extends AbstractClient
             ),
             workspaceRequest: true
         );
-
-        return $response;
     }
 }

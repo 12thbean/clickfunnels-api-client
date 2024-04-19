@@ -12,8 +12,6 @@ use Traversable;
  */
 class CursorPaginator implements IteratorAggregate
 {
-    protected int $perPage = 20;
-
     protected readonly HeaderCursor $cursor;
 
     /** @var Closure(HeaderCursor):mixed $getNextPageCallable */
@@ -64,5 +62,10 @@ class CursorPaginator implements IteratorAggregate
     {
         $nextCursorPointer = $this->cursor->getNext();
         return isset($nextCursorPointer);
+    }
+
+    public function getCursor(): HeaderCursor
+    {
+        return $this->cursor;
     }
 }
