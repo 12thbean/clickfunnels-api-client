@@ -13,11 +13,9 @@ class InvoiceClient extends AbstractClient
     /**
      * @return CursorPaginator<InvoiceDTO>
      */
-    public function getList(
-        ListInvoicesRequestContextDTO $listInvoicesRequestContextDTO,
-        ?int $after = null,
-    ): CursorPaginator {
-        $cursor = new HeaderCursor($after, $listInvoicesRequestContextDTO);
+    public function getList(?HeaderCursor $headerCursor = null): CursorPaginator
+    {
+        $cursor = $headerCursor ?? new HeaderCursor();
 
         return new CursorPaginator(
             // @phpstan-ignore-next-line

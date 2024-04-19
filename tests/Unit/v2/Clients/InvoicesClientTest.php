@@ -7,6 +7,7 @@ use Zendrop\ClickFunnelsApiClient\Tests\Unit\v2\TestData\Order\InvoiceTestData;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\InvoiceClient;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Invoice\InvoiceDTO;
 use Zendrop\ClickFunnelsApiClient\v2\DTO\Invoice\ListInvoicesRequestContextDTO;
+use Zendrop\ClickFunnelsApiClient\v2\Pagination\HeaderCursor;
 
 final class InvoicesClientTest extends ClientTestCase
 {
@@ -28,7 +29,9 @@ final class InvoicesClientTest extends ClientTestCase
         ]);
 
         $paginator = $this->invoiceClient->getList(
-            new ListInvoicesRequestContextDTO($testOrderId)
+            new HeaderCursor(
+                requestContextDTO: new ListInvoicesRequestContextDTO($testOrderId)
+            )
         );
 
         foreach ($paginator->getIterator() as $invoice) {
