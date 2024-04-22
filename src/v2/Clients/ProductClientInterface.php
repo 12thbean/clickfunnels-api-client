@@ -49,4 +49,20 @@ interface ProductClientInterface
      * @link https://developers.myclickfunnels.com/reference/updateproducts
      */
     public function update(int $id, UpdateProductDTO $payload): ProductDTO;
+
+    /**
+     * Archives a product.
+     *
+     * @param int $id
+     * @return ProductDTO
+     */
+    public function archive(int $id): ProductDTO;
+
+    /**
+     * UnArchives a product.
+     *
+     * @param int $id
+     * @return ProductDTO
+     */
+    public function unArchive(int $id): ProductDTO;
 }

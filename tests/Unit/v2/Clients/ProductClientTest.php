@@ -105,4 +105,30 @@ final class ProductClientTest extends ClientTestCase
         $this->assertEquals($payload->visibleInStore, $product->visibleInStore);
         $this->assertEquals($payload->visibleInCustomerCenter, $product->visibleInCustomerCenter);
     }
+
+    public function testArchive(): void
+    {
+        $productId = 9138;
+
+        Http::fake([
+            '*/products/*/archive' => Http::response(ProductTestData::product(id: $productId, archived: true)),
+        ]);
+
+        $product = $this->client->archive($productId);
+        $this->assertEquals($productId, $product->id);
+        $this->assertTrue($product->archived);
+    }
+
+    public function testUnArchive(): void
+    {
+        $productId = 9138;
+
+        Http::fake([
+            '*/products/*/unarchive' => Http::response(ProductTestData::product(id: $productId, archived: false)),
+        ]);
+
+        $product = $this->client->unarchive($productId);
+        $this->assertEquals($productId, $product->id);
+        $this->assertFalse($product->archived);
+    }
 }

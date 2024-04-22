@@ -12,6 +12,7 @@ final class ProductTestData
      * @param bool $visibleInStore
      * @param bool $visibleInCustomerCenter
      * @param string $seoTitle
+     * @param bool $archived
      *
      * @return array<string, mixed>
      * @throws JsonException
@@ -22,6 +23,7 @@ final class ProductTestData
         bool $visibleInStore = false,
         bool $visibleInCustomerCenter = false,
         string $seoTitle = 'Test Product',
+        bool $archived = false,
     ): array {
         $jsonResponse = <<<JSON
         {
@@ -62,6 +64,7 @@ JSON;
         $data['visible_in_store'] = $visibleInStore;
         $data['visible_in_customer_center'] = $visibleInCustomerCenter;
         $data['seo_title'] = $seoTitle;
+        $data['archived'] = $archived;
 
         return $data;
     }
