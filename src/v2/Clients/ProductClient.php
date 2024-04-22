@@ -67,6 +67,30 @@ class ProductClient extends AbstractClient implements ProductClientInterface
         return ProductDTO::fromResponse($response->json());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function archive(int $id): ProductDTO
+    {
+        $response = $this->sendRequest(
+            resource: "/products/{$id}/archive",
+            method: HttpMethod::POST,
+        );
+        return ProductDTO::fromResponse($response->json());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function unarchive(int $id): ProductDTO
+    {
+        $response = $this->sendRequest(
+            resource: "/products/{$id}/unarchive",
+            method: HttpMethod::POST,
+        );
+        return ProductDTO::fromResponse($response->json());
+    }
+
     private function getListRequest(HeaderCursor $cursor): Response
     {
         return $this->sendRequest(
