@@ -10,9 +10,9 @@ use Zendrop\Data\Skippable;
 class UpdateProductVariantDTO extends BaseDTO
 {
     public function __construct(
-        public readonly string $name,
-        public readonly ProductType $productType,
-        public readonly WeightUnit $weightUnit,
+        public readonly string|Skippable $name = Skippable::Skipped,
+        public readonly ProductType|Skippable $productType = Skippable::Skipped,
+        public readonly WeightUnit|Skippable $weightUnit = Skippable::Skipped,
         public readonly string|null|Skippable $description = Skippable::Skipped,
         public readonly string|null|Skippable $sku = Skippable::Skipped,
         public readonly string|null|Skippable $outOfStockSales = Skippable::Skipped,

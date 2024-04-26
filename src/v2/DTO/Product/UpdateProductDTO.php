@@ -8,7 +8,7 @@ use Zendrop\Data\Skippable;
 class UpdateProductDTO extends BaseDTO
 {
     public function __construct(
-        public readonly string $name,
+        public readonly string|Skippable $name = Skippable::Skipped,
         public readonly string|Skippable|null $currentPath = Skippable::Skipped,
         public readonly bool|Skippable|null $visibleInStore = Skippable::Skipped,
         public readonly bool|Skippable|null $visibleInCustomerCenter = Skippable::Skipped,
