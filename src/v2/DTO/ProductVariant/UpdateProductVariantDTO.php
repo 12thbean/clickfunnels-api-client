@@ -32,6 +32,8 @@ class UpdateProductVariantDTO extends BaseDTO
         public readonly array|null|Skippable $imageIds = Skippable::Skipped,
         /** @var int[]|null|Skippable $fulfillmentsLocationIds */
         public readonly array|null|Skippable $fulfillmentsLocationIds = Skippable::Skipped,
+        mixed ...$data,
     ) {
+        unset($data);
     }
 }
