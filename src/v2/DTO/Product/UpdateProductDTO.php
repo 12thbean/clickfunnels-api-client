@@ -26,6 +26,8 @@ class UpdateProductDTO extends BaseDTO
         public readonly string|Skippable|null $cancellationFunnelUrl = Skippable::Skipped,
         /** @var int[]|Skippable|null $tagIds */
         public readonly array|Skippable|null $tagIds = Skippable::Skipped,
+        mixed ...$data,
     ) {
+        unset($data);
     }
 }
