@@ -9,6 +9,7 @@ use Zendrop\ClickFunnelsApiClient\v2\Clients\FulfillmentLocationClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\InvoiceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\OrderClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductClient;
+use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductCollectionClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductImageClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductPriceClient;
 use Zendrop\ClickFunnelsApiClient\v2\Clients\ProductTagClient;
@@ -70,6 +71,11 @@ class ClickFunnelsClient
     public function productTag(): ProductTagClient
     {
         return $this->make(ProductTagClient::class);
+    }
+
+    public function productCollection(): ProductCollectionClient
+    {
+        return $this->make(ProductCollectionClient::class);
     }
 
     public function productPrice(): ProductPriceClient
