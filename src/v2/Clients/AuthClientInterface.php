@@ -14,5 +14,5 @@ interface AuthClientInterface
      * @throws Throwable
      * @link https://developers.myclickfunnels.com/docs/oauth-20#token-step
      */
-    public function getAccessToken(AccessTokenRequestDTO $payload): AccessTokenDTO;
+    public function getAccessToken(string $url, AccessTokenRequestDTO $payload): AccessTokenDTO;
 }
