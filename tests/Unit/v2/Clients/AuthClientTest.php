@@ -49,7 +49,7 @@ JSON;
             '*/oauth/token*' => Http::response($expectedData),
         ]);
 
-        $accessToken = $this->client->getAccessToken($payload);
+        $accessToken = $this->client->getAccessToken('fake_url/oauth/token', $payload);
         $accessTokenArray = $accessToken->toArray(ToArrayCase::Camel);
 
         $this->assertCount(count($expectedData), $accessTokenArray);

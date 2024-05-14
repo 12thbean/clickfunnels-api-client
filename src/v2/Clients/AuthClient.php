@@ -11,10 +11,10 @@ class AuthClient extends AbstractClient implements AuthClientInterface
     /**
      * {@inheritDoc}
      */
-    public function getAccessToken(AccessTokenRequestDTO $payload): AccessTokenDTO
+    public function getAccessToken(string $url, AccessTokenRequestDTO $payload): AccessTokenDTO
     {
         $response = $this->sendUnauthorizedRequest(
-            url: 'https://accounts.myclickfunnelsrelease.com/oauth/token',
+            url: $url,
             method: HttpMethod::POST,
             payload: $payload->toArray(),
         );
