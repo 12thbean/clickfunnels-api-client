@@ -59,7 +59,11 @@ final class OrderTestData
             "phone_number": null,
             "page_name": null,
             "origination_channel_name": "William Brant",
-            "order_page": null,
+            "order_page": {
+              "id": 342532,
+              "public_id": "jasY13s2X",
+              "name": "test-page"
+            },
             "contact": {
               "id": 179794,
               "public_id": "jaNYlX",
