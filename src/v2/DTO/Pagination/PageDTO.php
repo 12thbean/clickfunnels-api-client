@@ -8,8 +8,8 @@ class PageDTO extends BaseDTO
 {
     public function __construct(
         public readonly string $id,
-        public readonly string $name,
-        public readonly string $url,
+        public readonly string $publicId,
+        public readonly ?string $name = null,
         mixed ...$data,
     ) {
         unset($data);
