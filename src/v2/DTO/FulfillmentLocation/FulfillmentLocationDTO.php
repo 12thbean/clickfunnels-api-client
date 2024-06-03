@@ -11,7 +11,7 @@ class FulfillmentLocationDTO extends BaseDTO
         public readonly int $id,
         public readonly int $workspaceId,
         public readonly string $name,
-        public readonly ?bool $archived = null,
+        public readonly bool $archived = false,
         public readonly ?string $addressName = null,
         public readonly ?string $emailAddress = null,
         public readonly ?AddressDTO $address = null,

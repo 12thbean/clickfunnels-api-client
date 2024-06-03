@@ -14,6 +14,7 @@ class UpdateFulfillmentLocationDTO extends BaseDTO
         public readonly string|Skippable|null $emailAddress = Skippable::Skipped,
         public readonly string|Skippable|null $phoneNumber = Skippable::Skipped,
         public readonly bool|Skippable $externalApp = Skippable::Skipped,
+        public readonly bool|Skippable $archived = Skippable::Skipped,
         public readonly AddressDTO|Skippable|null $address = Skippable::Skipped,
     ) {
     }
