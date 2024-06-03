@@ -22,6 +22,7 @@ final class TestData
                 "email_address": "test@te.te",
                 "phone_number": "555-66-777",
                 "sort_order": 0,
+                "archived": true,
                 "external_app": true,
                 "created_at": "2024-03-18T16:44:11.448Z",
                 "updated_at": "2024-03-18T16:44:11.448Z",
