@@ -27,6 +27,8 @@ class ProductCollectionDTO extends BaseDTO
         public readonly ?int $socialImageId = null,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
+        mixed ...$data,
     ) {
+        unset($data);
     }
 }
