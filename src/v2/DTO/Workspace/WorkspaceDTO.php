@@ -14,6 +14,8 @@ class WorkspaceDTO extends BaseDTO
         public readonly ?string $publicId = null,
         public readonly ?string $createdAt = null,
         public readonly ?string $updatedAt = null,
+        mixed ...$data,
     ) {
+        unset($data);
     }
 }

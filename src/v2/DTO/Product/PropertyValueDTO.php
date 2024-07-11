@@ -9,6 +9,8 @@ class PropertyValueDTO extends BaseDTO
     public function __construct(
         public readonly int $propertyId,
         public readonly string $value,
+        mixed ...$data,
     ) {
+        unset($data);
     }
 }

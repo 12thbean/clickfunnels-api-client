@@ -16,6 +16,8 @@ class EventDTO extends BaseDTO
         /** @var null|array<string,mixed> */
         public readonly ?array $data = null,
         public readonly ?string $createdAt = null,
+        mixed ...$arguments,
     ) {
+        unset($arguments);
     }
 }
